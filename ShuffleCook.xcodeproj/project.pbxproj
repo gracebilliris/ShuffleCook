@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E6F4D4299C4B2D00E2EB8E /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */; };
 		563926C12999A09C00959904 /* ShuffleCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563926C02999A09C00959904 /* ShuffleCookApp.swift */; };
 		563926C32999A09C00959904 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563926C22999A09C00959904 /* ShoppingListView.swift */; };
 		563926C52999A09D00959904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 563926C42999A09D00959904 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		563926BD2999A09C00959904 /* ShuffleCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuffleCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563926C02999A09C00959904 /* ShuffleCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleCookApp.swift; sourceTree = "<group>"; };
 		563926C22999A09C00959904 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				563926DA299AF65B00959904 /* Recipe.swift */,
+				15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				563926DB299AF65B00959904 /* Recipe.swift in Sources */,
 				563926E1299AFFA700959904 /* ShuffleView.swift in Sources */,
 				563926C32999A09C00959904 /* ShoppingListView.swift in Sources */,
+				15E6F4D4299C4B2D00E2EB8E /* ListItem.swift in Sources */,
 				563926C12999A09C00959904 /* ShuffleCookApp.swift in Sources */,
 				563926E5299B555800959904 /* BrowseRecipeView.swift in Sources */,
 				563926D9299AF1A400959904 /* SearchBar.swift in Sources */,
