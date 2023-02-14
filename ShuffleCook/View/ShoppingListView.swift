@@ -39,17 +39,26 @@ struct ShoppingListView: View {
                     Image(systemName: isOn ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
                     Text("Quantity").gridColumnAlignment(.leading)
                     Text("Unit").gridColumnAlignment(.leading)
-                    Text("Typea").gridColumnAlignment(.leading)
+                    Text("Type").gridColumnAlignment(.leading)
                     //Spacer()
                     //Divider()
                 }
-                GridRow {
-                    Image(systemName: isOn ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
-                    Text("Quantity").gridColumnAlignment(.leading)
-                    Text("Unit").gridColumnAlignment(.leading)
-                    Text("Type").gridColumnAlignment(.leading)
-                    //Spacer()
+                ForEach(items, id: \.self) { item in
+                    GridRow {
+                        Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                        Text("\(item.quantity)").gridColumnAlignment(.leading)
+                        Text(item.unitType.description).gridColumnAlignment(.leading)
+                        Text(item.name).gridColumnAlignment(.leading)
+                    }
                 }
+//                for item in items {
+//                    GridRow {
+//                        Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+//                        Text(item.quantity).gridColumnAlignment(.leading)
+//                        Text(item.unitType).gridColumnAlignment(.leading)
+//                        Text(item.name).gridColumnAlignment(.leading)
+//                    }
+//                }
             }
             Divider()
             Spacer()
