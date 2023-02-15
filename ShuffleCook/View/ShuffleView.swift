@@ -9,8 +9,49 @@ import SwiftUI
 
 struct ShuffleView: View {
     var body: some View {
-        VStack{
-            Text("Hi, welcome to the Shuffle View!")
+        NavigationView {
+            ZStack {
+                
+                VStack (alignment: .leading){
+                    Text("Suggested Meal")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top, 30)
+                        .padding(.leading, 20)
+                        .frame(minHeight: 70, alignment: .leading)
+                    
+                    Divider()
+                        .frame(maxWidth: .infinity, maxHeight: 1)
+                        .padding(.top)
+                        .overlay(.gray.opacity(0))
+                    
+                    Spacer()
+                }
+                VStack(alignment: .center) {
+                    Image("Noodles")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(30)
+                        .padding()
+                    Text("Noodles")
+                        .font(.title)
+                        .bold()
+                        .padding()
+                                        
+                    NavigationLink(destination: ShuffleViewNavTest()) { // must now merge into main to view a recipe
+                        VStack (alignment: .center) {
+                            Text("Ingredients")
+                                .font(.subheadline)
+                                .bold()
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(.blue)
+                                .clipShape(Capsule())
+                        }
+                    }
+                }
+            }
         }
     }
 }
