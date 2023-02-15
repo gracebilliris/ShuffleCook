@@ -46,36 +46,16 @@ struct ShoppingListView: View {
                 ForEach(items, id: \.self) { item in
                     GridRow {
                         Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
-                        Text("\(item.quantity)").gridColumnAlignment(.leading)
+//                        Text(String(format:"%.2f", item.quantity))
+                        Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
+                            .gridColumnAlignment(.leading)
                         Text(item.unitType.description).gridColumnAlignment(.leading)
                         Text(item.name).gridColumnAlignment(.leading)
                     }
                 }
-//                for item in items {
-//                    GridRow {
-//                        Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
-//                        Text(item.quantity).gridColumnAlignment(.leading)
-//                        Text(item.unitType).gridColumnAlignment(.leading)
-//                        Text(item.name).gridColumnAlignment(.leading)
-//                    }
-//                }
             }
             Divider()
             Spacer()
-            //.frame(width: /*@START_MENU_TOKEN@*/500.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-            
-//            VStack {
-//                Text("List View!")
-//                    .font(.title)
-//                    .foregroundColor(.blue)
-//                HStack {
-//                    Text("Blue Mountains National Park")
-//                        .font(.subheadline)
-//                    //Spacer()
-//                    Text("NSW")
-//                        .font(.subheadline)
-//                }
-//            }
         }
         .padding()
     }
