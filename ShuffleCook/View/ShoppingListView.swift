@@ -14,6 +14,25 @@ private var items: [ListItem] = [item1, item2]
 //items.append(item1)
 //items.append(item2)
 
+var recipesSelected: [Recipe] = [Recipe(name: "Margherita Pizza",
+                                        ingredients: ["Tomato"],
+                                        instructions: ["1.", "2.", "3."],
+                                        totalTime: "10",
+                                        cardColor: "Color4"
+                                       ),
+                                 Recipe(name: "Shepherds Pie",
+                                        ingredients: ["Beef"],
+                                        instructions: ["1.", "2.", "3."],
+                                        totalTime: "10",
+                                        cardColor: "Color3"
+                                       ),
+                                 Recipe(name: "Cheese Sandwich",
+                                        ingredients: ["Beef"],
+                                        instructions: ["1.", "2.", "3."],
+                                        totalTime: "10",
+                                        cardColor: "Color1"
+                                       )]
+
 struct ShoppingListView: View {
     
     var body: some View {
@@ -31,29 +50,39 @@ struct ShoppingListView: View {
 //                NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) { /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Navigate")/*@END_MENU_TOKEN@*/ }
 //
 //            }
-            
-            HStack{
-                Text("Current Recipes")
+            Divider()
+            ScrollView(.horizontal){
+                HStack(spacing: 10) {
+                    ForEach(recipesSelected) { rec in
+                        RecipeView(recipe: rec)
+                    }
+                }.padding()
+                .frame(height: 400)
+                //Divider()
+                Spacer()
             }
-            .frame(height: 200.0)
+            .frame(height: 270.0)
+            Divider()
             
-            Grid() {
-                GridRow  {
-                    Image(systemName: "square").gridColumnAlignment(.center)
-                    Text("Quantity").gridColumnAlignment(.leading)
-                    Text("Unit").gridColumnAlignment(.leading)
-                    Text("Type").gridColumnAlignment(.leading)
-                    //Spacer()
-                    //Divider()
-                }
-                ForEach(items, id: \.self) { item in
-                    GridRow {
-                        Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
-//                        Text(String(format:"%.2f", item.quantity))
-                        Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
-                            .gridColumnAlignment(.leading)
-                        Text(item.unitType.description).gridColumnAlignment(.leading)
-                        Text(item.name).gridColumnAlignment(.leading)
+            ScrollView(.vertical) {
+                Grid() {
+                    GridRow  {
+                        Image(systemName: "square").gridColumnAlignment(.center)
+                        Text("Quantity").gridColumnAlignment(.leading)
+                        Text("Unit").gridColumnAlignment(.leading)
+                        Text("Product").gridColumnAlignment(.leading)
+                        //Spacer()
+                        //Divider()
+                    }
+                    ForEach(items, id: \.self) { item in
+                        GridRow {
+                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+    //                        Text(String(format:"%.2f", item.quantity))
+                            Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
+                                .gridColumnAlignment(.leading)
+                            Text(item.unitType.description).gridColumnAlignment(.leading)
+                            Text(item.name).gridColumnAlignment(.leading)
+                        }
                     }
                 }
             }
