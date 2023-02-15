@@ -15,8 +15,6 @@ private var items: [ListItem] = [item1, item2]
 //items.append(item2)
 
 struct ShoppingListView: View {
-    @State private var isOn = false
-    
     
     var body: some View {
         VStack (alignment: .leading){
@@ -34,9 +32,14 @@ struct ShoppingListView: View {
 //
 //            }
             
+            HStack{
+                Text("Current Recipes")
+            }
+            .frame(height: 200.0)
+            
             Grid() {
                 GridRow  {
-                    Image(systemName: isOn ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                    Image(systemName: "square").gridColumnAlignment(.center)
                     Text("Quantity").gridColumnAlignment(.leading)
                     Text("Unit").gridColumnAlignment(.leading)
                     Text("Type").gridColumnAlignment(.leading)
