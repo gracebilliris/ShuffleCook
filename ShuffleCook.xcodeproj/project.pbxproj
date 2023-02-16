@@ -100,6 +100,7 @@
 				563926E4299B555800959904 /* BrowseRecipeView.swift */,
 				563926C22999A09C00959904 /* ShoppingListView.swift */,
 				563926E0299AFFA700959904 /* ShuffleView.swift */,
+				6BC3D8B2299DA600004B4233 /* ShuffleViewNavTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC3D8B3299DA600004B4233 /* ShuffleViewNavTest.swift in Sources */,
 				563926DF299AFF2C00959904 /* MainView.swift in Sources */,
 				56A8C463299E1232005A35AD /* ModelData.swift in Sources */,
 				563926DB299AF65B00959904 /* Recipe.swift in Sources */,
