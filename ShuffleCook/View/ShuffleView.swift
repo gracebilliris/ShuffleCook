@@ -23,7 +23,13 @@ struct ShuffleView: View {
                             .frame(minHeight: 70, alignment: .leading)
                         Spacer()
                         Button(action: {
-                        // add button action here
+                        // change contents of page example of function
+                        // not linked to database of recipes and recipe page yet
+                            if currentContent == "Noodles" {
+                                currentContent = "Omelette"
+                            } else {
+                                currentContent = "Noodles"
+                            }
                         }) {
                             Image(systemName: "arrow.clockwise")
                                 .imageScale(.large)
@@ -60,15 +66,6 @@ struct ShuffleView: View {
                                 .padding(10)
                                 .background(.blue)
                                 .clipShape(Capsule())
-                        }
-                    }
-                    // change contents of page example of function
-                    // not linked to database of recipes and recipe page yet
-                    Button("SHUFFLE") {
-                        if currentContent == "Noodles" {
-                            currentContent = "Omelette"
-                        } else {
-                            currentContent = "Noodles"
                         }
                     }
                     .padding(.top)
