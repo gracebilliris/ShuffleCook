@@ -75,11 +75,11 @@ struct ShoppingListView: View {
                         }
                     }
                 }.padding()
-                .frame(height: 400)
+                .frame(height: 200)
                 //Divider()
                 Spacer()
             }
-            .frame(height: 270.0)
+            .frame(height: 220.0)
             Divider()
             
             ScrollView(.vertical) {
