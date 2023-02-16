@@ -6,52 +6,19 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BrowseRecipeView: View {
-    private var recipes = [
-        Recipe(name: "Pear",
-               ingredients: ["Pear"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color2"
-              ),
-        Recipe(name: "Noodles",
-               ingredients: ["Noodles", "Capsicums"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color1"
-              ),
-        Recipe(name: "Margherita Pizza",
-               ingredients: ["Tomato"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color4"
-              ),
-        Recipe(name: "Shepherds Pie",
-               ingredients: ["Beef"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color3"
-              ),
-        Recipe(name: "Cheese Sandwich",
-               ingredients: ["Beef"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color1"
-              ),
-        Recipe(name: "Omelette",
-               ingredients: ["Tomato", "Eggs"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color2"
-              ),
-    ]
     
     var columns = Array(repeating: GridItem(.flexible()), count: 2)
     
     @State var text = ""
     
     @State private var goToNewView: Bool = false
+
+//    init() {
+//        print("recipes : \(String(describing: recipes))")
+//    }
     
     var body: some View {
         ZStack {
@@ -79,7 +46,8 @@ struct BrowseRecipeView: View {
                     
                     ScrollView(.vertical, showsIndicators: false){
                         LazyVGrid(columns: columns, spacing: 20){
-                            ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){ recipe in
+                            ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
+                                recipe in
                                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
                                     NavigationLink(destination: ShoppingListView()){
                                         VStack {
