@@ -13,36 +13,42 @@ struct BrowseRecipeView: View {
                ingredients: ["Pear"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color2"
               ),
         Recipe(name: "Noodles",
                ingredients: ["Noodles", "Capsicums"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color1"
               ),
         Recipe(name: "Margherita Pizza",
                ingredients: ["Tomato"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color4"
               ),
         Recipe(name: "Shepherds Pie",
                ingredients: ["Beef"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color3"
               ),
         Recipe(name: "Cheese Sandwich",
                ingredients: ["Beef"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color1"
               ),
         Recipe(name: "Omelette",
                ingredients: ["Tomato", "Eggs"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color2"
               ),
     ]

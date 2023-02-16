@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		377284A2299C50780066B219 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377284A1299C50780066B219 /* RecipeView.swift */; };
+		377284A4299DBA2B0066B219 /* NSAttributedStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377284A3299DBA2B0066B219 /* NSAttributedStringHelper.swift */; };
 		563926C12999A09C00959904 /* ShuffleCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563926C02999A09C00959904 /* ShuffleCookApp.swift */; };
 		563926C32999A09C00959904 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563926C22999A09C00959904 /* ShoppingListView.swift */; };
 		563926C52999A09D00959904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 563926C42999A09D00959904 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		377284A1299C50780066B219 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		377284A3299DBA2B0066B219 /* NSAttributedStringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringHelper.swift; sourceTree = "<group>"; };
 		563926BD2999A09C00959904 /* ShuffleCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuffleCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563926C02999A09C00959904 /* ShuffleCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleCookApp.swift; sourceTree = "<group>"; };
 		563926C22999A09C00959904 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 				563926DD299AF91600959904 /* View */,
 				563926DC299AF8FB00959904 /* Model */,
 				563926D8299AF1A400959904 /* SearchBar.swift */,
+				377284A3299DBA2B0066B219 /* NSAttributedStringHelper.swift */,
 				563926C42999A09D00959904 /* Assets.xcassets */,
 				563926C62999A09D00959904 /* Preview Content */,
 			);
@@ -93,6 +98,7 @@
 				563926DE299AFF2C00959904 /* MainView.swift */,
 				563926E4299B555800959904 /* BrowseRecipeView.swift */,
 				563926C22999A09C00959904 /* ShoppingListView.swift */,
+				377284A1299C50780066B219 /* RecipeView.swift */,
 				563926E0299AFFA700959904 /* ShuffleView.swift */,
 			);
 			path = View;
@@ -172,8 +178,10 @@
 				563926DB299AF65B00959904 /* Recipe.swift in Sources */,
 				563926E1299AFFA700959904 /* ShuffleView.swift in Sources */,
 				563926C32999A09C00959904 /* ShoppingListView.swift in Sources */,
+				377284A4299DBA2B0066B219 /* NSAttributedStringHelper.swift in Sources */,
 				563926C12999A09C00959904 /* ShuffleCookApp.swift in Sources */,
 				563926E5299B555800959904 /* BrowseRecipeView.swift in Sources */,
+				377284A2299C50780066B219 /* RecipeView.swift in Sources */,
 				563926D9299AF1A400959904 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
