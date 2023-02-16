@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BrowseRecipeView: View {
     
@@ -53,6 +54,10 @@ struct BrowseRecipeView: View {
     @State var text = ""
     
     @State private var goToNewView: Bool = false
+
+//    init() {
+//        print("recipes : \(String(describing: recipes))")
+//    }
     
     var body: some View {
         ZStack {
@@ -80,7 +85,8 @@ struct BrowseRecipeView: View {
                     
                     ScrollView(.vertical, showsIndicators: false){
                         LazyVGrid(columns: columns, spacing: 20){
-                            ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){ recipe in
+                            ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
+                                recipe in
                                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
                                     NavigationLink(destination: ShoppingListView()){
                                         VStack {

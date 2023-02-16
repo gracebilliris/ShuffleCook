@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ShuffleView: View {
+    
     var body: some View {
         VStack{
             Text("Hi, welcome to the Shuffle View!")
