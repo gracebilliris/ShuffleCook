@@ -13,43 +13,51 @@ struct BrowseRecipeView: View {
                ingredients: ["Pear"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color2"
               ),
         Recipe(name: "Noodles",
                ingredients: ["Noodles", "Capsicums"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color1"
               ),
         Recipe(name: "Margherita Pizza",
                ingredients: ["Tomato"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color4"
               ),
         Recipe(name: "Shepherds Pie",
                ingredients: ["Beef"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color3"
               ),
         Recipe(name: "Cheese Sandwich",
                ingredients: ["Beef"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color1"
               ),
         Recipe(name: "Omelette",
                ingredients: ["Tomato", "Eggs"],
                instructions: ["1.", "2.", "3."],
                totalTime: "10",
+               servings: 4,
                cardColor: "Color2"
               ),
     ]
     
     var columns = Array(repeating: GridItem(.flexible()), count: 2)
     
-    @State var text = " "
+    @State var text = ""
+    
+    @State private var goToNewView: Bool = false
     
     var body: some View {
         ZStack {
@@ -119,27 +127,17 @@ struct BrowseRecipeView: View {
 //                            .background(Color(recipe.cardColor))
 //                            .clipShape(RoundedRectangle(cornerRadius: 15))
 //                            .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
+
                         }
                     }
+                    .padding(.trailing, 20)
+                    .padding(.leading, 20)
+                    .padding(.top, 5)
                 }
-                .padding(.trailing, 20)
-                .padding(.leading, 20)
-                .padding(.top, 5)
             }
         }
     }
 }
-
-        
-//        VStack {
-//            SearchBar(text: $text)
-//                .padding(10)
-//
-//
-//                }
-//            }
-//            .padding(.top, 30)
-//        }
 
 struct BrowseRecipeView_Previews: PreviewProvider {
     static var previews: some View {
