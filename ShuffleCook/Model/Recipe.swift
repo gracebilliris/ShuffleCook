@@ -15,5 +15,7 @@ struct Recipe: Identifiable, Decodable {
     var ingredients: Array<String>
     var totalTime: Int
     var instructions: Array<String>
+    var totalTime: String
+    var servings: Int
     var cardColor: String
 }

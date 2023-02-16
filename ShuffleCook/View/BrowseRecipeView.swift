@@ -9,6 +9,50 @@ import SwiftUI
 import CoreData
 
 struct BrowseRecipeView: View {
+    private var recipes = [
+        Recipe(name: "Pear",
+               ingredients: ["Pear"],
+               instructions: ["1.", "2.", "3."],
+               totalTime: "10",
+               servings: 4,
+               cardColor: "Color2"
+              ),
+        Recipe(name: "Noodles",
+               ingredients: ["Noodles", "Capsicums"],
+               instructions: ["1.", "2.", "3."],
+               totalTime: "10",
+               servings: 4,
+               cardColor: "Color1"
+              ),
+        Recipe(name: "Margherita Pizza",
+               ingredients: ["Tomato"],
+               instructions: ["1.", "2.", "3."],
+               totalTime: "10",
+               servings: 4,
+               cardColor: "Color4"
+              ),
+        Recipe(name: "Shepherds Pie",
+               ingredients: ["Beef"],
+               instructions: ["1.", "2.", "3."],
+               totalTime: "10",
+               servings: 4,
+               cardColor: "Color3"
+              ),
+        Recipe(name: "Cheese Sandwich",
+               ingredients: ["Beef"],
+               instructions: ["1.", "2.", "3."],
+               totalTime: "10",
+               servings: 4,
+               cardColor: "Color1"
+              ),
+        Recipe(name: "Omelette",
+               ingredients: ["Tomato", "Eggs"],
+               instructions: ["1.", "2.", "3."],
+               totalTime: "10",
+               servings: 4,
+               cardColor: "Color2"
+              ),
+    ]
     
     var columns = Array(repeating: GridItem(.flexible()), count: 2)
     
@@ -56,33 +100,26 @@ struct BrowseRecipeView: View {
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(height: 150)
                                             
-                                            HStack {
-                                                VStack (alignment: .leading){
-                                                    Text(recipe.name)
-                                                        .font(.title3)
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(Color("mainfont"))
-                                                    //
-                                                    //                                            Text(recipe.totalTime)
-                                                    //                                                .foregroundColor(Color("subfont"))
-                                                    //
-                                                    //                                            Text(recipe.name)
-                                                    //                                                .font(.headline)
-                                                    //                                                .foregroundColor(Color("mainfont"))
-                                                    //                                                .fontWeight(.semibold)
-                                                }
-                                                
-                                                Spacer()
-                                            }
-                                        }
-                                    }
-                                }
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 20)
-                                .background(Color(recipe.cardColor))
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                                .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
-                            }
+//                                            Text(recipe.totalTime)
+//                                                .foregroundColor(Color("subfont"))
+//
+//                                            Text(recipe.name)
+//                                                .font(.headline)
+//                                                .foregroundColor(Color("mainfont"))
+//                                                .fontWeight(.semibold)
+//                                        }
+//
+//                                        Spacer()
+//                                    }
+//                                }
+//                            }
+//                            .frame(height: 150)
+//                            .padding(.horizontal, 20)
+//                            .padding(.vertical, 20)
+//                            .background(Color(recipe.cardColor))
+//                            .clipShape(RoundedRectangle(cornerRadius: 15))
+//                            .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
+
                         }
                     }
                     .padding(.trailing, 20)
