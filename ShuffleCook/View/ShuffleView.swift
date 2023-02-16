@@ -13,18 +13,26 @@ struct ShuffleView: View {
             ZStack {
                 
                 VStack (alignment: .leading){
-                    Text("Suggested Meal")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.top, 30)
-                        .padding(.leading, 20)
-                        .frame(minHeight: 70, alignment: .leading)
+                    HStack {
+                        Text("Suggested Meal")
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(.top, 30)
+                            .padding(.leading, 20)
+                            .frame(minHeight: 70, alignment: .leading)
+                        Spacer()
+                        Image(systemName: "arrow.clockwise")
+                            .imageScale(.large)
+                            .foregroundColor(.blue)
+                            .padding(.top, 30)
+                            .padding(.trailing)
+                            .frame(alignment: .trailing)
+                    }
                     
                     Divider()
                         .frame(maxWidth: .infinity, maxHeight: 1)
                         .padding(.top)
                         .overlay(.gray.opacity(0))
-                    
                     Spacer()
                 }
                 VStack(alignment: .center) {
