@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct ShuffleCookApp: App {
+    
     var body: some Scene {
         WindowGroup {
             MainView()

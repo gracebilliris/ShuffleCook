@@ -52,10 +52,10 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView(recipe: Recipe(name: "Noodles",
+        RecipeView(recipe: Recipe(id: 2,
+                                  name: "Noodles",
                           ingredients: ["Noodles", "Capsicums"],
-                          instructions: ["1.", "2.", "3."],
-                          totalTime: "10",
+                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                   servings: 1,
                           cardColor: "Color1"
                          ))

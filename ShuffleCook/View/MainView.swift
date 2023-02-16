@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
+import Foundation
 
 struct MainView: View {
+    
+    @State var name: String = ""
+
     var body: some View {
         TabView {
             BrowseRecipeView()
@@ -33,3 +38,4 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
+

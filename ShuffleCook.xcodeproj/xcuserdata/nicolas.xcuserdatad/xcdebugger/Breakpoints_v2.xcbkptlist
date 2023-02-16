@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "020BFC57-F5A1-4D1A-B0A1-21FE254DA10C"
+   uuid = "83204E5B-B66D-45F8-9CF9-16EFA7C5490B"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "527B11B0-3EE6-43A8-9E0E-FA0A31091FD1"
-            shouldBeEnabled = "No"
+            uuid = "0772726B-AAB6-41F8-A1E8-1E5B33DEB5AD"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShuffleCook/View/ModelData.swift"
+            filePath = "ShuffleCook/View/RecipeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "95"
+            endingLineNumber = "95">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
