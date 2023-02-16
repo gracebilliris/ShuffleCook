@@ -17,27 +17,30 @@ private var items: [ListItem] = [item1, item2]
 var recipesSelected: [Recipe] = [Recipe(id: 3,
                                         name: "Margherita Pizza",
                                         ingredients: ["Tomato"],
-                                        totalTime: 10, instructions: ["1.", "2.", "3."],
+                                        instructions: ["1.", "2.", "3."],
+                                        totalTime: "10",
                                         servings: 4,
                                         cardColor: "Color4"
                                        ),
                                  Recipe(id: 2, name: "Shepherds Pie",
                                         ingredients: ["Beef"],
-                                        totalTime: 10, instructions: ["1.", "2.", "3."],
+                                        instructions: ["1.", "2.", "3."],
+                                        totalTime: "10",
                                         servings: 4,
                                         cardColor: "Color3"
                                        ),
                                  Recipe(id: 1,
                                         name: "Cheese Sandwich",
                                         ingredients: ["Beef"],
-                                        totalTime: 10, instructions: ["1.", "2.", "3."],
+                                        instructions: ["1.", "2.", "3."],
+                                        totalTime: "10",
                                         servings: 4,
                                         cardColor: "Color1"
                                        )]
 
 struct ShoppingListView: View {
     @State var text = ""
-    @State var editMode = true //should be false
+    @State var editMode = false
     var body: some View {
         VStack (alignment: .leading){
             
@@ -71,26 +74,30 @@ struct ShoppingListView: View {
                 HStack(spacing: 10) {
                     ForEach(recipesSelected) { rec in
                         ZStack{
+                            
                             RecipeView(recipe: rec)
                             if (editMode){
-                                Button(role: .destructive){
+                                Button(role: .destructive)
+                                    {
                                     print("Removing recipe from list:")
                                     print("rec: " + rec.name)
                                     removeRecipe(recipe: rec)
+                                    editMode = !editMode
+                                    editMode = !editMode
                                 } label: {
                                     Image(systemName: "xmark.app.fill")
                                         .imageScale(Image.Scale.large)
-                                        .offset(x: 90, y:-105)
+                                       // .offset(x: 80, y:-100)
 //                                        .position(x: 190, y:75)
                                         .shadow(radius: 2)
                                 }
-//
+                                .offset(x: 80, y:-100)
                                 //.onTapGesture(perform: <#T##() -> Void#>)
                             }
                         }
                     }
                 }.padding()
-                .frame(height: 200)
+                .frame(height: 230)
                 //Divider()
                 Spacer()
             }
@@ -144,6 +151,14 @@ struct ShoppingListView: View {
     private func editAction(){
         editMode = !editMode
     }
+    
+    // Will not work yet, waiting for new model.
+//    private func assembleShoppingList(){
+//        items = []
+//        for i..<recipesSelected.count{
+//            items.append(recipesSelected[i].ingredients)
+//        }
+//    }
 }
 
 struct ShoppingListView_Previews: PreviewProvider {
