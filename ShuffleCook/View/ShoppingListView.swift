@@ -14,24 +14,23 @@ private var items: [ListItem] = [item1, item2]
 //items.append(item1)
 //items.append(item2)
 
-var recipesSelected: [Recipe] = [Recipe(name: "Margherita Pizza",
+var recipesSelected: [Recipe] = [Recipe(id: 3,
+                                        name: "Margherita Pizza",
                                         ingredients: ["Tomato"],
-                                        instructions: ["1.", "2.", "3."],
-                                        totalTime: "10",
+                                        totalTime: 10, instructions: ["1.", "2.", "3."],
                                         servings: 4,
                                         cardColor: "Color4"
                                        ),
-                                 Recipe(name: "Shepherds Pie",
+                                 Recipe(id: 2, name: "Shepherds Pie",
                                         ingredients: ["Beef"],
-                                        instructions: ["1.", "2.", "3."],
-                                        totalTime: "10",
+                                        totalTime: 10, instructions: ["1.", "2.", "3."],
                                         servings: 4,
                                         cardColor: "Color3"
                                        ),
-                                 Recipe(name: "Cheese Sandwich",
+                                 Recipe(id: 1,
+                                        name: "Cheese Sandwich",
                                         ingredients: ["Beef"],
-                                        instructions: ["1.", "2.", "3."],
-                                        totalTime: "10",
+                                        totalTime: 10, instructions: ["1.", "2.", "3."],
                                         servings: 4,
                                         cardColor: "Color1"
                                        )]

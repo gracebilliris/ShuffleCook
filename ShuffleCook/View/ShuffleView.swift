@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ShuffleView: View {
     @State var currentContent = "Noodles"
+    var recipe = Recipe(id: 2,
+                        name: "Noodles",
+                ingredients: ["Noodles", "Capsicums"],
+                        totalTime: 10, instructions: ["1.", "2.", "3."],
+                        servings: 1,
+                cardColor: "Color1"
+               )
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -56,7 +65,8 @@ struct ShuffleView: View {
                         .font(.title)
                         .bold()
                         .padding()
-                    NavigationLink(destination: ShuffleViewNavTest()) { // must now merge into main to view a recipe
+                    
+                    NavigationLink(destination: RecipeView(recipe: recipe)) { // must now merge into main to view a recipe
                         VStack (alignment: .center) {
                             Text("Ingredients")
                                 .font(.subheadline)
