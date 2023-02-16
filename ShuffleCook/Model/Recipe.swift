@@ -9,15 +9,12 @@ import Foundation
 import CoreData
 import SwiftUI
 
-struct Recipe: Identifiable {
-    var id = UUID()
+struct Recipe: Identifiable, Decodable {
+    var id: Int
     var name: String
     var ingredients: Array<String>
+    var totalTime: Int
     var instructions: Array<String>
-    var totalTime: String
     var servings: Int
     var cardColor: String
 }
-
-
-
