@@ -34,27 +34,45 @@ var recipesSelected: [Recipe] = [Recipe(name: "Margherita Pizza",
                                        )]
 
 struct ShoppingListView: View {
-    
+    @State var text = ""
+    @State var editMode = false
     var body: some View {
         VStack (alignment: .leading){
             
-//            NavigationView {
-//                VStack (alignment: .leading){
-//                    HStack (){
-//                        Image(systemName: isOn ? "checkmark.square.fill" : "square")
-//                        Text("Nav")
-//                            .navigationTitle("Shopping List")
-//                    }
-//                }
-//                    //.navigation
-//                NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) { /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Navigate")/*@END_MENU_TOKEN@*/ }
-//
-//            }
+            // HEADER / NAVIGATION
+            Text("Shopping List")
+                .font(.largeTitle)
+                .padding(.top, 30)
+                .padding(.leading, 30)
+                .foregroundColor(Color("mainfont"))
+            
+            Button((editMode ? "Save" : "Edit")) {
+                editAction()
+            }.offset(x: 320, y: -30)
+            
+//            Divider()
+//                .frame(minWidth: 100)
+//                .frame(height: 1)
+//                .overlay(.gray.opacity(0))
+
+//            SearchBar(text: $text)
+//                .padding(.leading, 20)
+//                .padding(.trailing, 20)
+            
             Divider()
+                .frame(minWidth: 100)
+                .frame(height: 1)
+                .overlay(.gray.opacity(0))
+            // END HEADER / NAVIGATION
+            
             ScrollView(.horizontal){
                 HStack(spacing: 10) {
                     ForEach(recipesSelected) { rec in
                         RecipeView(recipe: rec)
+                        if (editMode){
+                            Image(systemName: "xmark.app.fill")
+                                //.onTapGesture(perform: <#T##() -> Void#>)
+                        }
                     }
                 }.padding()
                 .frame(height: 400)
@@ -90,6 +108,26 @@ struct ShoppingListView: View {
             Spacer()
         }
         .padding()
+        
+        
+    }
+    
+    private func removeRecipe(recipe: Recipe){
+        var index = -1
+        for i in 0..<recipesSelected.count{
+            if (recipesSelected[i].name == recipe.name){
+                index = i
+                break
+            }
+        }
+        if (index != -1){
+            recipesSelected.remove(at: index)
+        }
+        
+    }
+    
+    private func editAction(){
+        editMode = !editMode
     }
 }
 
