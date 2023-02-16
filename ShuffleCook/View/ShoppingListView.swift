@@ -35,7 +35,7 @@ var recipesSelected: [Recipe] = [Recipe(name: "Margherita Pizza",
 
 struct ShoppingListView: View {
     @State var text = ""
-    @State var editMode = false
+    @State var editMode = true //should be false
     var body: some View {
         VStack (alignment: .leading){
             
@@ -68,10 +68,23 @@ struct ShoppingListView: View {
             ScrollView(.horizontal){
                 HStack(spacing: 10) {
                     ForEach(recipesSelected) { rec in
-                        RecipeView(recipe: rec)
-                        if (editMode){
-                            Image(systemName: "xmark.app.fill")
+                        ZStack{
+                            RecipeView(recipe: rec)
+                            if (editMode){
+                                Button(role: .destructive){
+                                    print("Removing recipe from list:")
+                                    print("rec: " + rec.name)
+                                    removeRecipe(recipe: rec)
+                                } label: {
+                                    Image(systemName: "xmark.app.fill")
+                                        .imageScale(Image.Scale.large)
+                                        .offset(x: 90, y:-105)
+//                                        .position(x: 190, y:75)
+                                        .shadow(radius: 2)
+                                }
+//
                                 //.onTapGesture(perform: <#T##() -> Void#>)
+                            }
                         }
                     }
                 }.padding()
@@ -123,7 +136,7 @@ struct ShoppingListView: View {
         if (index != -1){
             recipesSelected.remove(at: index)
         }
-        
+        print("func removeRecipe removing at index: " + String(index))
     }
     
     private func editAction(){
