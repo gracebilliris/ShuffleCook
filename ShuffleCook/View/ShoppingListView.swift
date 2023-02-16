@@ -69,26 +69,28 @@ struct ShoppingListView: View {
                 HStack(spacing: 10) {
                     ForEach(recipesSelected) { rec in
                         ZStack{
+                            
                             RecipeView(recipe: rec)
                             if (editMode){
-                                Button(role: .destructive){
+                                Button(role: .destructive)
+                                    {
                                     print("Removing recipe from list:")
                                     print("rec: " + rec.name)
                                     removeRecipe(recipe: rec)
                                 } label: {
                                     Image(systemName: "xmark.app.fill")
                                         .imageScale(Image.Scale.large)
-                                        .offset(x: 90, y:-105)
+                                       // .offset(x: 80, y:-100)
 //                                        .position(x: 190, y:75)
                                         .shadow(radius: 2)
                                 }
-//
+                                .offset(x: 80, y:-100)
                                 //.onTapGesture(perform: <#T##() -> Void#>)
                             }
                         }
                     }
                 }.padding()
-                .frame(height: 200)
+                .frame(height: 230)
                 //Divider()
                 Spacer()
             }
