@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "Pear",
+        "servings": 1,
         "ingredients": ["Pear"],
         "totalTime": 1,
         "instructions": ["1.", "2.", "3."],
@@ -10,6 +11,7 @@
     {
         "id": 2,
         "name": "Noodles",
+        "servings": 1,
         "ingredients": ["Noodles", "Capsicums"],
         "totalTime": 25,
         "instructions": ["1.", "2.", "3."],
@@ -17,6 +19,7 @@
     },
     {
         "id": 3,
+        "servings": 1,
         "name": "Margherita Pizza",
         "ingredients": ["Tomato", "Dough"],
         "totalTime": 15,
@@ -25,6 +28,7 @@
     },
     {
         "id": 4,
+        "servings": 1,
         "name": "Shepherds Pie",
         "ingredients": ["Beef", "Potato"],
         "totalTime": 10,
@@ -33,6 +37,7 @@
     },
     {
         "id": 5,
+        "servings": 1,
         "name": "Cheese Sandwich",
         "ingredients": ["Cheese", "Bread"],
         "totalTime": 8,
@@ -42,6 +47,7 @@
     {
         "id": 6,
         "name": "Omelette",
+        "servings": 1,
         "ingredients": ["Eggs", "Onions"],
         "totalTime": 10,
         "instructions": ["1.", "2.", "3."],

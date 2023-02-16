@@ -9,46 +9,6 @@ import SwiftUI
 import CoreData
 
 struct BrowseRecipeView: View {
-    
-    private var recipes = [
-        Recipe(name: "Pear",
-               ingredients: ["Pear"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color2"
-              ),
-        Recipe(name: "Noodles",
-               ingredients: ["Noodles", "Capsicums"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color1"
-              ),
-        Recipe(name: "Margherita Pizza",
-               ingredients: ["Tomato"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color4"
-              ),
-        Recipe(name: "Shepherds Pie",
-               ingredients: ["Beef"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color3"
-              ),
-        Recipe(name: "Cheese Sandwich",
-               ingredients: ["Beef"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color1"
-              ),
-        Recipe(name: "Omelette",
-               ingredients: ["Tomato", "Eggs"],
-               instructions: ["1.", "2.", "3."],
-               totalTime: "10",
-               cardColor: "Color2"
-              ),
-    ]
-    
     var columns = Array(repeating: GridItem(.flexible()), count: 2)
     
     @State var text = ""
@@ -88,7 +48,7 @@ struct BrowseRecipeView: View {
                             ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
                                 recipe in
                                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
-                                    NavigationLink(destination: ShoppingListView()){
+                                    NavigationLink(destination: RecipeView(recipe: recipe)){
                                         VStack {
                                             Image(recipe.name)
                                                 .resizable()
