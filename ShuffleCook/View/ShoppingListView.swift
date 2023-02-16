@@ -38,7 +38,7 @@ var recipesSelected: [Recipe] = [Recipe(name: "Margherita Pizza",
 
 struct ShoppingListView: View {
     @State var text = ""
-    @State var editMode = true //should be false
+    @State var editMode = false
     var body: some View {
         VStack (alignment: .leading){
             
@@ -80,6 +80,8 @@ struct ShoppingListView: View {
                                     print("Removing recipe from list:")
                                     print("rec: " + rec.name)
                                     removeRecipe(recipe: rec)
+                                    editMode = !editMode
+                                    editMode = !editMode
                                 } label: {
                                     Image(systemName: "xmark.app.fill")
                                         .imageScale(Image.Scale.large)
