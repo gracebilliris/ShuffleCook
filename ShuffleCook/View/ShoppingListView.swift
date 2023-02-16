@@ -149,6 +149,14 @@ struct ShoppingListView: View {
     private func editAction(){
         editMode = !editMode
     }
+    
+    // Will not work yet, waiting for new model.
+//    private func assembleShoppingList(){
+//        items = []
+//        for i..<recipesSelected.count{
+//            items.append(recipesSelected[i].ingredients)
+//        }
+//    }
 }
 
 struct ShoppingListView_Previews: PreviewProvider {
