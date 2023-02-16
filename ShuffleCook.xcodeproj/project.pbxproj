@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		377284A2299C50780066B219 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377284A1299C50780066B219 /* RecipeView.swift */; };
+		15E6F4D4299C4B2D00E2EB8E /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */; };
+		15E6F4D6299C6CC700E2EB8E /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6F4D5299C6CC700E2EB8E /* RecipeView.swift */; };
 		377284A8299DCAE70066B219 /* CompleteRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377284A7299DCAE70066B219 /* CompleteRecipeView.swift */; };
 		563926C12999A09C00959904 /* ShuffleCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563926C02999A09C00959904 /* ShuffleCookApp.swift */; };
 		563926C32999A09C00959904 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563926C22999A09C00959904 /* ShoppingListView.swift */; };
@@ -21,7 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		377284A1299C50780066B219 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		15E6F4D5299C6CC700E2EB8E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		377284A7299DCAE70066B219 /* CompleteRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRecipeView.swift; sourceTree = "<group>"; };
 		563926BD2999A09C00959904 /* ShuffleCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuffleCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563926C02999A09C00959904 /* ShuffleCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleCookApp.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				563926DA299AF65B00959904 /* Recipe.swift */,
+				15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +103,7 @@
 				377284A1299C50780066B219 /* RecipeView.swift */,
 				377284A7299DCAE70066B219 /* CompleteRecipeView.swift */,
 				563926E0299AFFA700959904 /* ShuffleView.swift */,
+				15E6F4D5299C6CC700E2EB8E /* RecipeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,10 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E6F4D6299C6CC700E2EB8E /* RecipeView.swift in Sources */,
 				563926DF299AFF2C00959904 /* MainView.swift in Sources */,
 				563926DB299AF65B00959904 /* Recipe.swift in Sources */,
 				563926E1299AFFA700959904 /* ShuffleView.swift in Sources */,
 				563926C32999A09C00959904 /* ShoppingListView.swift in Sources */,
+				15E6F4D4299C4B2D00E2EB8E /* ListItem.swift in Sources */,
 				377284A8299DCAE70066B219 /* CompleteRecipeView.swift in Sources */,
 				563926C12999A09C00959904 /* ShuffleCookApp.swift in Sources */,
 				563926E5299B555800959904 /* BrowseRecipeView.swift in Sources */,
