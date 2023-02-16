@@ -104,58 +104,58 @@ struct CompleteRecipeView: View {
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.leading)
-                                    .position(x:60,y:10)
-                                    .padding(.leading, 20)
-
-                                Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
+                                    
+                                
+                                Text("Total Time: " + recipe.totalTime)
+                                    .font(.headline)
                                     .multilineTextAlignment(.leading)
                                     .padding()
-                                    
-                                    
-                                //for each)
                                 
-
-
-                                
+                                Text("Servings: " + String(recipe.servings))
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                                    .padding()
                             }
-                            .padding()
-                            
-
-                    
-                            
-                            
-    //                        ScrollView(.vertical, showsIndicators: false){
-    //                            ForEach(recipe.ingredients){ ingredient in
-    //                                Text(String(ingredient))
-    //                                //                         \\array [0, 1, 2, 3] indices
-    //                                //                            Text(
-    //                            }
-    //                        }
-    //                        .padding(.trailing, 20)
-    //                        .padding(.leading, 20)
-    //                        .padding(.top, 5)
-                            //Text("Here")
-                            
-                            
-                            
-    //                        ForEach()
-    //                        Text(recipe.ingredients)
-    //                            .multilineTextAlignment(.leading)
-    //                            .lineLimit(10)
-    //                            .frame(height: 100.0)
-    //
-    //                        Text(recipe.instructions)
-    //                            .multilineTextAlignment(.leading)
-    //                            .lineLimit(10)
-    //                            .frame(height: 100.0)
-                                    
+                            .frame(width: 150.0, height: 250.0)
                         }
-            //scroll view closer below me
+                        
+                        Spacer()
+                        
+                        VStack(){
+                            Text("Ingredients:")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.leading)
+                                .position(x:60,y:10)
+                                
+                            
+                            
+                            //ingredients
+                            Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
+                                .padding()
+                                
+                                
+                            
+                            
+                            Text(recipe.instructions.joined(separator: "\n "))
+                                .multilineTextAlignment(.leading)
+                            
+                        }
+
+                        
+                        //for each)
+
                     }
+                    .padding()
+                    
+   
                 }
- 
+                //scroll view closer below me
             }
         }
-//View closed
+        
+        
     }
+//View closed
+    
 }
