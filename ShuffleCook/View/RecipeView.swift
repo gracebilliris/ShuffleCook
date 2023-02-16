@@ -42,8 +42,8 @@ struct RecipeView: View {
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 20)
-        .frame(width: 190.0)
-        .frame(height: 220.0)
+        .frame(width: 160.0)
+        .frame(height: 200.0)
         .background(Color(recipe.cardColor))
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
