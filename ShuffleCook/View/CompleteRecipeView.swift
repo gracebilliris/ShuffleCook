@@ -49,113 +49,92 @@ struct CompleteRecipeView: View {
 //    , instructions: ["1. 2. "], )
 //
     var body: some View {
-        HStack {
-            VStack {
-                HStack {
-                    ScrollView{
-                        VStack {
-                            //whole stack
-                            VStack(alignment: .center) {
-                                //page Title, add to list Hstack
-                                HStack(alignment: .center, spacing: 150.0){
-                                    Text("Recipe")
-                                        .font(.largeTitle)
-                                        .fontWeight(.heavy)
-                                        .frame(width: 115.0)
-                                    Button("+ Add to list") {
-                                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                                    }
-                                    .frame(width: 100.0)
-                                }
-                                
-                                .padding(1.0)
-                                Divider()
-                                
-                                //name, total time and recipe image Hstack
-                                HStack(alignment: .center){
-                                    Image(recipe.name)
-                                        .resizable()
-                                        .frame(width: 200, height: 200)
-                                        .cornerRadius(38)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(recipe.name)
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                            .multilineTextAlignment(.leading)
-                                            .padding()
-                                        
-                                        Text("Total Time: " + recipe.totalTime)
-                                            .font(.headline)
-                                            .multilineTextAlignment(.leading)
-                                            .padding()
-                                        
-                                        Text("Servings: " + String(recipe.servings))
-                                            .font(.headline)
-                                            .multilineTextAlignment(.leading)
-                                            .padding()
-                                    }
-                                    .frame(width: 150.0, height: 250.0)
-                                }
-                                
-                                Spacer()
-                                
-                                Text("Ingredients:")
-                                    .font(.title2)
+        VStack{
+            //page Title, add to list Hstack
+            HStack(alignment: .center, spacing: 150.0){
+                Text("Recipe")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .frame(width: 115.0)
+                Button("+ Add to list") {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                }
+                .frame(width: 100.0)
+            }
+            .padding(1.0)
+            Divider()
+            
+            
+
+            ScrollView{
+                VStack {
+                    
+                    //whole stack
+                    VStack(alignment: .center) {
+                        //name, total time and recipe image Hstack
+                        HStack(alignment: .center){
+                            Image(recipe.name)
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .cornerRadius(38)
+                            
+                            VStack(alignment: .leading){
+                                Text(recipe.name)
+                                    .font(.title)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.leading)
-                                    .position(x:60,y:10)
-                                    .padding(.leading, 20)
-
-                                Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
+                                    
+                                
+                                Text("Total Time: " + recipe.totalTime)
+                                    .font(.headline)
                                     .multilineTextAlignment(.leading)
                                     .padding()
-                                    
-                                    
-                                //for each)
                                 
-
-
-                                
+                                Text("Servings: " + String(recipe.servings))
+                                    .font(.headline)
+                                    .multilineTextAlignment(.leading)
+                                    .padding()
                             }
-                            .padding()
-                            
-
-                    
-                            
-                            
-    //                        ScrollView(.vertical, showsIndicators: false){
-    //                            ForEach(recipe.ingredients){ ingredient in
-    //                                Text(String(ingredient))
-    //                                //                         \\array [0, 1, 2, 3] indices
-    //                                //                            Text(
-    //                            }
-    //                        }
-    //                        .padding(.trailing, 20)
-    //                        .padding(.leading, 20)
-    //                        .padding(.top, 5)
-                            //Text("Here")
-                            
-                            
-                            
-    //                        ForEach()
-    //                        Text(recipe.ingredients)
-    //                            .multilineTextAlignment(.leading)
-    //                            .lineLimit(10)
-    //                            .frame(height: 100.0)
-    //
-    //                        Text(recipe.instructions)
-    //                            .multilineTextAlignment(.leading)
-    //                            .lineLimit(10)
-    //                            .frame(height: 100.0)
-                                    
+                            .frame(width: 150.0, height: 250.0)
                         }
-            //scroll view closer below me
+                        
+                        Spacer()
+                        
+                        VStack(){
+                            Text("Ingredients:")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.leading)
+                                .position(x:60,y:10)
+                                
+                            
+                            
+                            //ingredients
+                            Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
+                                .padding()
+                                
+                                
+                            
+                            
+                            Text(recipe.instructions.joined(separator: "\n "))
+                                .multilineTextAlignment(.leading)
+                            
+                        }
+
+                        
+                        //for each)
+
                     }
+                    .padding()
+                    
+   
                 }
- 
+                //scroll view closer below me
             }
         }
-//View closed
+        
+        
     }
+//View closed
+    
 }
