@@ -56,6 +56,7 @@ struct RecipeView_Previews: PreviewProvider {
                           ingredients: ["Noodles", "Capsicums"],
                           instructions: ["1.", "2.", "3."],
                           totalTime: "10",
+                                  servings: 1,
                           cardColor: "Color1"
                          ))
     }
