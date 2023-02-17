@@ -14,28 +14,29 @@ private var items: [ListItem] = [item1, item2]
 //items.append(item1)
 //items.append(item2)
 
-var recipesSelected: [Recipe] = [Recipe(id: 3,
-                                        name: "Margherita Pizza",
-                                        ingredients: ["Tomato"],
-                                        totalTime: 10, instructions: ["1.", "2.", "3."],
-                                        servings: 4,
-                                        cardColor: "Color4"
-                                       ),
-                                 Recipe(id: 2, name: "Shepherds Pie",
-                                        ingredients: ["Beef"],
-                                        totalTime: 10, instructions: ["1.", "2.", "3."],
-                                        servings: 4,
-                                        cardColor: "Color3"
-                                       ),
-                                 Recipe(id: 1,
-                                        name: "Cheese Sandwich",
-                                        ingredients: ["Beef"],
-                                        totalTime: 10, instructions: ["1.", "2.", "3."],
-                                        servings: 4,
-                                        cardColor: "Color1"
-                                       )]
+//var recipesSelected: [Recipe] = [Recipe(id: 3,
+//                                        name: "Margherita Pizza",
+//                                        ingredients: ["Tomato"],
+//                                        totalTime: 10, instructions: ["1.", "2.", "3."],
+//                                        servings: 4,
+//                                        cardColor: "Color4"
+//                                       ),
+//                                 Recipe(id: 2, name: "Shepherds Pie",
+//                                        ingredients: ["Beef"],
+//                                        totalTime: 10, instructions: ["1.", "2.", "3."],
+//                                        servings: 4,
+//                                        cardColor: "Color3"
+//                                       ),
+//                                 Recipe(id: 1,
+//                                        name: "Cheese Sandwich",
+//                                        ingredients: ["Beef"],
+//                                        totalTime: 10, instructions: ["1.", "2.", "3."],
+//                                        servings: 4,
+//                                        cardColor: "Color1"
+//                                       )]
 
 struct ShoppingListView: View {
+    @State var selectedRecipe:[Recipe]
     @State var text = ""
     @State var editMode = false
     var body: some View {
@@ -69,13 +70,13 @@ struct ShoppingListView: View {
             
             ScrollView(.horizontal){
                 HStack(spacing: 10) {
-                    ForEach(recipesSelected) { rec in
+                    ForEach(selectedRecipe) { rec in
                         ZStack{
                             
                             RecipeView(recipe: rec)
+//                            let _ = print("Rendering selected recipe: " + rec.name)
                             if (editMode){
-                                Button(role: .destructive)
-                                    {
+                                Button(role: .destructive){
                                     print("Removing recipe from list:")
                                     print("rec: " + rec.name)
                                     removeRecipe(recipe: rec)
@@ -133,14 +134,14 @@ struct ShoppingListView: View {
     
     private func removeRecipe(recipe: Recipe){
         var index = -1
-        for i in 0..<recipesSelected.count{
-            if (recipesSelected[i].name == recipe.name){
+        for i in 0..<selectedRecipe.count{
+            if (selectedRecipe[i].name == recipe.name){
                 index = i
                 break
             }
         }
         if (index != -1){
-            recipesSelected.remove(at: index)
+            selectedRecipe.remove(at: index)
         }
         print("func removeRecipe removing at index: " + String(index))
     }
@@ -160,6 +161,25 @@ struct ShoppingListView: View {
 
 struct ShoppingListView_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingListView()
+        ShoppingListView(selectedRecipe: [Recipe(id: 3,
+                                 name: "Margherita Pizza",
+                                 ingredients: ["Tomato"],
+                                 totalTime: 10, instructions: ["1.", "2.", "3."],
+                                 servings: 4,
+                                 cardColor: "Color4"
+                                ),
+                          Recipe(id: 2, name: "Shepherds Pie",
+                                 ingredients: ["Beef"],
+                                 totalTime: 10, instructions: ["1.", "2.", "3."],
+                                 servings: 4,
+                                 cardColor: "Color3"
+                                ),
+                          Recipe(id: 1,
+                                 name: "Cheese Sandwich",
+                                 ingredients: ["Beef"],
+                                 totalTime: 10, instructions: ["1.", "2.", "3."],
+                                 servings: 4,
+                                 cardColor: "Color1"
+                                )])
     }
 }
