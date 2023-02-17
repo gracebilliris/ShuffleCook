@@ -3,7 +3,13 @@
         "id": 1,
         "name": "Pear",
         "servings": 1,
-        "ingredients": ["Pear"],
+        "ingredients": [
+            {
+                "name": "Pear",
+                "unitType": "Pcs",
+                "quantity": "1"
+            }
+        ],
         "totalTime": 1,
         "instructions": ["1.", "2.", "3."],
         "cardColor": "Color1"

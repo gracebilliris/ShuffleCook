@@ -151,32 +151,54 @@ struct ShoppingListView: View {
     }
     
     // Will not work yet, waiting for new model.
-//    private func assembleShoppingList(){
-//        items = []
-//        for i..<recipesSelected.count{
-//            items.append(recipesSelected[i].ingredients)
-//        }
-//    }
+    private func assembleShoppingList(){
+        items = []
+        for recit in 0..<selectedRecipe.count{
+            for ingr in 0..<selectedRecipe[recit].ingredients.count{
+//                if (items.contains(where: {$0.name == selectedRecipe[recit].name})){
+//                    print(selectedRecipe[recit].name + " already exists in list, adding to quantity")
+//                    let index = items.firstIndex(where: {$0.name == selectedRecipe[recit].name})
+//                    items[index].quantity += selectedRecipe[recit].ingredients[ingr].quantity
+//                }
+                if let row = items.firstIndex(where: {$0.name == selectedRecipe[recit].name}) {
+                    items[row].quantity += selectedRecipe[recit].ingredients[ingr].quantity
+                }
+                else {
+                    items.append(ListItem(collected: false, unitType: selectedRecipe[recit].ingredients[ingr].unitType, quantity: selectedRecipe[recit].ingredients[ingr].quantity, name: selectedRecipe[recit].ingredients[ingr].name, recipeId: String(selectedRecipe[recit].id)))
+                }
+            }
+        }
+    }
 }
 
 struct ShoppingListView_Previews: PreviewProvider {
     static var previews: some View {
         ShoppingListView(selectedRecipe: [Recipe(id: 3,
                                  name: "Margherita Pizza",
-                                 ingredients: ["Tomato"],
+                                 ingredients: [
+                                    Ingredient(unitType: UnitType.Pcs, quantity: 1, name: "Tomato"),
+                                    Ingredient(unitType: UnitType.Pcs, quantity: 1, name: "Pizza Base"),
+                                    Ingredient(unitType: UnitType.g, quantity: 100, name: "Cheese"),
+                                 ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                  servings: 4,
                                  cardColor: "Color4"
                                 ),
                           Recipe(id: 2, name: "Shepherds Pie",
-                                 ingredients: ["Beef"],
+                                 ingredients: [
+                                    Ingredient(unitType: UnitType.Pcs, quantity: 1, name: "Potato"),
+                                    Ingredient(unitType: UnitType.Kg, quantity: 40.56, name: "Cherry Tomatoes"),
+                                 ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                  servings: 4,
                                  cardColor: "Color3"
                                 ),
                           Recipe(id: 1,
                                  name: "Cheese Sandwich",
-                                 ingredients: ["Beef"],
+                                 ingredients: [
+                                    Ingredient(unitType: UnitType.Pcs, quantity: 2, name: "Slice of Bread"),
+                                   Ingredient(unitType: UnitType.g, quantity: 100, name: "Cheese"),
+                                ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                  servings: 4,
                                  cardColor: "Color1"

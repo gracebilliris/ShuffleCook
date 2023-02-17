@@ -10,7 +10,7 @@ import Foundation
 //enum UnitType {
 //    case undef, mass, volume, pieces
 //}
-enum UnitType: CustomStringConvertible {
+enum UnitType: CustomStringConvertible, Codable {
     case g, Kg, mL, L, Pcs
     
     var description : String {
