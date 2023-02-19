@@ -12,7 +12,8 @@ struct ShuffleView: View {
     @State var currentContent = "Noodles"
     var recipe = Recipe(id: 2,
                         name: "Noodles",
-                ingredients: ["Noodles", "Capsicums"],
+                ingredients: [Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Noodles"),
+                               Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Capsicum")],
                         totalTime: 10, instructions: ["1.", "2.", "3."],
                         servings: 1,
                 cardColor: "Color1"
