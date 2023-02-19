@@ -55,8 +55,9 @@ struct RecipeView_Previews: PreviewProvider {
         RecipeView(recipe: Recipe(id: 2,
                                   name: "Noodles",
                           ingredients: ["Noodles", "Capsicums"],
+                          totalTime: 10, // use Int as in CompleteRecipeView uses String(recipe.totalTime)
                           instructions: ["1.", "2.", "3."],
-                          totalTime: "10",
+//                          totalTime: "10",        // argument must precede "instructions"
                                   servings: 1,
                           cardColor: "Color1"
                          ))

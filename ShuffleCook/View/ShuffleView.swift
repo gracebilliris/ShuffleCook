@@ -8,20 +8,18 @@
 import SwiftUI
 import Foundation
 
+func randomise() -> Recipe {
+    return recipes.randomElement() ?? Recipe(id: 1, name: "Cheese Sandwich",ingredients: ["Beef"], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4, cardColor: "Color1");
+}
+
 struct ShuffleView: View {
-    @State var currentContent = "Noodles"
-    var recipe = Recipe(id: 2,
-                        name: "Noodles",
-                ingredients: ["Noodles", "Capsicums"],
-                        totalTime: 10, instructions: ["1.", "2.", "3."],
-                        servings: 1,
-                cardColor: "Color1"
-               )
+    @State private var recipe: Recipe = randomise();
+    
+    @State private var newShuffleRecipe: Bool = false
     
     var body: some View {
         NavigationView {
             ZStack {
-                
                 VStack (alignment: .leading){
                     HStack {
                         Text("Suggested Meal")
@@ -31,21 +29,19 @@ struct ShuffleView: View {
                             .padding(.leading, 20)
                             .frame(minHeight: 70, alignment: .leading)
                         Spacer()
-                        Button(action: {
-                        // change contents of page example of function
-                        // not linked to database of recipes and recipe page yet
-                            if currentContent == "Noodles" {
-                                currentContent = "Omelette"
-                            } else {
-                                currentContent = "Noodles"
-                            }
-                        }) {
+                        
+                        Button {
+                            recipe = randomise()
+                        } label: {
                             Image(systemName: "arrow.clockwise")
                                 .imageScale(.large)
                                 .foregroundColor(.blue)
                                 .padding(.top, 30)
                                 .padding(.trailing)
                                 .frame(alignment: .trailing)
+                                .onTapGesture (count: 1) {
+                                    recipe = randomise()
+                                }
                         }
                     }
                     
@@ -56,17 +52,18 @@ struct ShuffleView: View {
                     Spacer()
                 }
                 VStack(alignment: .center) {
-                    Image(currentContent)
+                    Image(recipe.name)
                         .resizable()
                         .frame(width: 300, height: 300)
                         .cornerRadius(30)
                         .padding()
-                    Text(currentContent)
+                    
+                    Text(recipe.name)
                         .font(.title)
                         .bold()
                         .padding()
                     
-                    NavigationLink(destination: RecipeView(recipe: recipe)) { // must now merge into main to view a recipe
+                    NavigationLink(destination: RecipeView(recipe: recipe)){ // must now merge into main to view a recipe
                         VStack (alignment: .center) {
                             Text("Ingredients")
                                 .font(.subheadline)

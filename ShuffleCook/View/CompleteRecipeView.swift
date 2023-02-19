@@ -106,7 +106,7 @@ struct CompleteRecipeView: View {
                                     .multilineTextAlignment(.leading)
                                     
                                 
-                                Text("Total Time: " + recipe.totalTime)
+                                Text("Total Time: " + String(recipe.totalTime))
                                     .font(.headline)
                                     .multilineTextAlignment(.leading)
                                     .padding()

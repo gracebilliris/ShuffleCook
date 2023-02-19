@@ -17,23 +17,25 @@ private var items: [ListItem] = [item1, item2]
 var recipesSelected: [Recipe] = [Recipe(id: 3,
                                         name: "Margherita Pizza",
                                         ingredients: ["Tomato"],
+                                        totalTime: 10,
                                         instructions: ["1.", "2.", "3."],
-                                        totalTime: "10",
                                         servings: 4,
                                         cardColor: "Color4"
                                        ),
                                  Recipe(id: 2, name: "Shepherds Pie",
                                         ingredients: ["Beef"],
+                                        totalTime: 10,
                                         instructions: ["1.", "2.", "3."],
-                                        totalTime: "10",
+//                                        totalTime: "10",
                                         servings: 4,
                                         cardColor: "Color3"
                                        ),
                                  Recipe(id: 1,
                                         name: "Cheese Sandwich",
                                         ingredients: ["Beef"],
+                                        totalTime: 10,
                                         instructions: ["1.", "2.", "3."],
-                                        totalTime: "10",
+//                                        totalTime: "10",
                                         servings: 4,
                                         cardColor: "Color1"
                                        )]
