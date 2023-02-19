@@ -29,6 +29,8 @@ struct CompleteRecipeView: View {
     private var recipe = Recipe(id: 7,
                                 name: "Prawn & Kimchi Fried Rice",
            ingredients: ["1 Lebanese cucumber, cut into matchsticks",
+                         // Replace with the following form. 
+                         Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Lebanese Cucumber", desc: "cut into matchsticks"),
                          "1 carrot, peeled, cut into matchsticks",
                          "1 juiced lime",
                          "2 corn cobs, Use a knife to cut down the side of corn to release the kernels",
