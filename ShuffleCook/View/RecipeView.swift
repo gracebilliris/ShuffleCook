@@ -11,6 +11,7 @@ struct RecipeView: View {
     var recipe:Recipe
     
     var body: some View {
+        
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
             VStack {
                 Image(recipe.name)

@@ -66,7 +66,7 @@ struct ShuffleView: View {
                         .bold()
                         .padding()
                     
-                    NavigationLink(destination: RecipeView(recipe: recipe)) { // must now merge into main to view a recipe
+                    NavigationLink(destination: CompleteRecipeView(recipe: recipe)) { // must now merge into main to view a recipe
                         VStack (alignment: .center) {
                             Text("Ingredients")
                                 .font(.subheadline)
