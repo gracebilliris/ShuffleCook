@@ -11,7 +11,7 @@ import Foundation
 //    case undef, mass, volume, pieces
 //}
 enum UnitType: CustomStringConvertible, Codable {
-    case g, Kg, mL, L, Pcs
+    case g, Kg, mL, L, Pcs, tbs, cup
     
     var description : String {
         switch self {
@@ -21,6 +21,8 @@ enum UnitType: CustomStringConvertible, Codable {
         case .mL: return "mL"
         case .L: return "L"
         case .Pcs: return "Pcs"
+        case .tbs: return "tbs"
+        case .cup: return "cup"
         }
       }
 }
