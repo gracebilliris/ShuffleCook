@@ -112,6 +112,7 @@ struct ShoppingListView: View {
                         //Spacer()
                         //Divider()
                     }
+                    let _: () = assembleShoppingList()
                     ForEach(items, id: \.self) { item in
                         GridRow {
                             Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
@@ -150,7 +151,6 @@ struct ShoppingListView: View {
         editMode = !editMode
     }
     
-    // Will not work yet, waiting for new model.
     private func assembleShoppingList(){
         items = []
         for recit in 0..<selectedRecipe.count{
