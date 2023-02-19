@@ -5,9 +5,10 @@
         "servings": 1,
         "ingredients": [
             {
-                "name": "Pear",
+                "quantity": "1",
                 "unitType": "Pcs",
-                "quantity": "1"
+                "name": "Pear",
+                "index": 0
             }
         ],
         "totalTime": 1,
@@ -18,7 +19,14 @@
         "id": 2,
         "name": "Noodles",
         "servings": 1,
-        "ingredients": ["Noodles", "Capsicums"],
+        "ingredients": [
+            {
+                "quantity": "1",
+                "unitType": "Pcs",
+                "name": "Noodles",
+                "index": 0
+            }
+        ],
         "totalTime": 25,
         "instructions": ["1.", "2.", "3."],
         "cardColor": "Color2"
@@ -27,7 +35,14 @@
         "id": 3,
         "servings": 1,
         "name": "Margherita Pizza",
-        "ingredients": ["Tomato", "Dough"],
+        "ingredients": [
+            {
+                "quantity": "1",
+                "unitType": "Pcs",
+                "name": "Pizza base",
+                "index": 0
+            }
+        ],
         "totalTime": 15,
         "instructions": ["1.", "2.", "3."],
         "cardColor": "Color4"
@@ -36,7 +51,14 @@
         "id": 4,
         "servings": 1,
         "name": "Shepherds Pie",
-        "ingredients": ["Beef", "Potato"],
+        "ingredients": [
+            {
+                "quantity": "1",
+                "unitType": "Pcs",
+                "name": "Pear",
+                "index": 0
+            }
+        ],
         "totalTime": 10,
         "instructions": ["1.", "2.", "3."],
         "cardColor": "Color3"
@@ -45,7 +67,14 @@
         "id": 5,
         "servings": 1,
         "name": "Cheese Sandwich",
-        "ingredients": ["Cheese", "Bread"],
+        "ingredients": [
+            {
+                "quantity": "1",
+                "unitType": "Pcs",
+                "name": "Pear",
+                "index": 0
+            }
+        ],
         "totalTime": 8,
         "instructions": ["1.", "2.", "3."],
         "cardColor": "Color1"
@@ -54,7 +83,14 @@
         "id": 6,
         "name": "Omelette",
         "servings": 1,
-        "ingredients": ["Eggs", "Onions"],
+        "ingredients": [
+            {
+                "quantity": "1",
+                "unitType": "Pcs",
+                "name": "Pear",
+                "index": 0
+            }
+        ],
         "totalTime": 10,
         "instructions": ["1.", "2.", "3."],
         "cardColor": "Color2"

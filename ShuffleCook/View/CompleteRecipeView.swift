@@ -111,9 +111,9 @@ struct CompleteRecipeView: View {
                                 Grid() {
                                     ForEach(recipe.ingredients, id: \.index) { ingr in
                                         GridRow(){
-                                            Text(ingr.name)
                                             Text((ingr.unitType == UnitType.Pcs) ? String(format:"%.0f", ingr.quantity) : String(format:"%.2f", ingr.quantity))
                                             Text(ingr.unitType.description)
+                                            Text(ingr.name)
                                             Text(ingr.desc ?? "")
                                         }
                                     }
