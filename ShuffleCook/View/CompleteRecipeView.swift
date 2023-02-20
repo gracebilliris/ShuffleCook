@@ -75,15 +75,16 @@ struct CompleteRecipeView: View {
     var body: some View {
         VStack{
             //page Title, add to list Hstack
-            HStack(alignment: .center, spacing: 150.0){
+            HStack(alignment: .center, spacing: 150){
                 Text("Recipe")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .frame(width: 115.0)
                     .multilineTextAlignment(.leading)
+                    .padding(.bottom)
                 Button("+ Add to list") {
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                }
+                }.padding(.bottom)
                 .frame(width: 100.0)
             }.padding(1.0)
             
@@ -109,16 +110,23 @@ struct CompleteRecipeView: View {
                                 .cornerRadius(38)
                             
                             VStack(alignment: .leading){
-
-                                Text("Total Time: " + String(recipe.totalTime))
-                                    .font(.headline)
-                                    .multilineTextAlignment(.leading)
-                                    .padding()
                                 
-                                Text("Servings: " + String(recipe.servings))
-                                    .font(.headline)
-                                    .multilineTextAlignment(.leading)
-                                    .padding()
+                                //total time VStack
+                                VStack{
+                                    Text("Total Time")
+                                        .font(.headline)
+                                        .multilineTextAlignment(.leading)
+                                    Text(String(recipe.totalTime) + " minutes \n").multilineTextAlignment(.leading)
+                                    
+                                    Text("Servings").font(.headline).multilineTextAlignment(.leading)
+
+                                    Text(String(recipe.servings)).multilineTextAlignment(.leading)
+                                    
+                                }.padding(.leading)
+                                
+                                      
+                                
+                                
                             }
                             .frame(width: 150.0, height: 200.0)
                         }.frame(width: 375, height: 200)
@@ -144,12 +152,21 @@ struct CompleteRecipeView: View {
                                     //                                            Text((ingr.unitType == UnitType.Pcs) ? String(format:"%.0f", ingr.quantity) : String(format:"%.2f", ingr.quantity))
                                     Text((ingr.unitType == "Pcs") ? String(format:"%.0f", ingr.quantity) :
                                             String(format:"%.0f", ingr.quantity) + " " + ingr.unitType)
-                                  
+                                    
+//                                  if else for comma inclusion down here
+
+                                    
+                                    
+                                    
+                                    //IF the thing doesnt work just use this
                                     Text(ingr.name + ", " + (ingr.desc ?? " ")).multilineTextAlignment(.leading)
-                                    //Text(ingr.desc ?? "").multilineTextAlignment(.leading)
+
+                                    
                                 }
+                                Divider()
+                                //padding here?
                             }
-                        }.padding(.trailing)
+                        }.padding(.leading, 10)
                         
                         Spacer()
                         
@@ -164,8 +181,8 @@ struct CompleteRecipeView: View {
 
                        
                         
-                        Text(recipe.instructions.joined(separator: "\n")).multilineTextAlignment(.leading)
-                            
+                        Text(recipe.instructions.joined(separator: "\n\n")).multilineTextAlignment(.leading).padding(.leading)
+
                         
                         //for each)
                         
