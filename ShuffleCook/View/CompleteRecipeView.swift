@@ -24,6 +24,7 @@ import UIKit
 
 
 struct CompleteRecipeView: View {
+    //@State public var selectedRecipes: [Recipe]
     
     private var recipe = Recipe(id: 7,
                                 name: "Prawn & Kimchi Fried Rice",
