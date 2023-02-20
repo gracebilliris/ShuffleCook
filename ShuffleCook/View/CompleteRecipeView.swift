@@ -85,7 +85,7 @@ struct CompleteRecipeView: View {
                     .multilineTextAlignment(.leading)
                     .padding(.bottom)
                 Button("+ Add to list") {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    model.globalSelectedRecipes.append(recipe)
                 }.padding(.bottom)
                 .frame(width: 100.0)
             }.padding(1.0)
