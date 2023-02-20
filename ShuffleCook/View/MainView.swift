@@ -26,7 +26,7 @@ struct MainView: View {
                     Label("Shuffle", systemImage: "shuffle")
                 }
             
-            ShoppingListView(selectedRecipe: selectedRecipes)
+            ShoppingListView()//selectedRecipe: selectedRecipes
                 .tabItem {
                     Label("Shopping", systemImage: "list.dash")
                 }
