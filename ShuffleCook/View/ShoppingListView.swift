@@ -47,29 +47,17 @@ struct ShoppingListView: View {
         VStack (alignment: .leading){
             
             // HEADER / NAVIGATION
-            Text("Shopping List")
-                .font(.largeTitle)
-                .padding(.top, 30)
-                .padding(.leading, 30)
-                .foregroundColor(Color("mainfont"))
+            HStack {
+                Text("Shopping List")
+                    .font(.largeTitle)
+                    .bold()
+                Spacer()
+                Button((editMode ? "Save" : "Edit")) {
+                    editAction()
+                }
+            } .padding(.horizontal)
+                .padding(.vertical)
             
-            Button((editMode ? "Save" : "Edit")) {
-                editAction()
-            }.offset(x: 320, y: -30)
-            
-//            Divider()
-//                .frame(minWidth: 100)
-//                .frame(height: 1)
-//                .overlay(.gray.opacity(0))
-
-//            SearchBar(text: $text)
-//                .padding(.leading, 20)
-//                .padding(.trailing, 20)
-            
-            Divider()
-                .frame(minWidth: 100)
-                .frame(height: 1)
-                .overlay(.gray.opacity(0))
             // END HEADER / NAVIGATION
             
             ScrollView(.horizontal){
@@ -89,49 +77,92 @@ struct ShoppingListView: View {
                                 } label: {
                                     Image(systemName: "xmark.app.fill")
                                         .imageScale(Image.Scale.large)
-                                       // .offset(x: 80, y:-100)
-//                                        .position(x: 190, y:75)
-                                        .shadow(radius: 2)
                                 }
-                                .offset(x: 80, y:-100)
+                                .offset(x: 82, y:-110)
                                 //.onTapGesture(perform: <#T##() -> Void#>)
                             }
                         }
                     }
                 }.padding()
-                .frame(height: 230)
-                //Divider()
+                .frame(height: 240)
                 Spacer()
             }
             .frame(height: 220.0)
-            Divider()
             
             ScrollView(.vertical) {
                 Grid() {
+//                    GridRow  {
+//                        Image(systemName: "square").gridColumnAlignment(.center)
+//                        Text("Quantity").gridColumnAlignment(.leading)
+//                        Text("Unit").gridColumnAlignment(.leading)
+//                        Text("Product").gridColumnAlignment(.leading)
+//                    }
                     GridRow  {
-                        Image(systemName: "square").gridColumnAlignment(.center)
-                        Text("Quantity").gridColumnAlignment(.leading)
-                        Text("Unit").gridColumnAlignment(.leading)
-                        Text("Product").gridColumnAlignment(.leading)
-                        //Spacer()
-                        //Divider()
-                    }
+                        GeometryReader { geometry in
+                            Image(systemName: "square")
+                                .gridColumnAlignment(.center)
+//                                .frame(minWidth: geometry.size.width * 0.1) // Set a minimum width of 10% of the column width
+                                .padding(.leading, 20)
+                                .frame(maxWidth: 40)
+                        }
+                        GeometryReader { geometry in
+                            Text("Qty")
+                                .gridColumnAlignment(.leading)
+//                                .frame(minWidth: geometry.size.width * 0.3) // Set a minimum width of 30% of the column width
+                        }
+                        GeometryReader { geometry in
+                            Text("Unit")
+                                .gridColumnAlignment(.leading)
+//                                .frame(minWidth: geometry.size.width * 0.2) // Set a minimum width of 20% of the column width
+                        }
+                        GeometryReader { geometry in
+                            Text("Product")
+                                .gridColumnAlignment(.leading)
+//                                .frame(minWidth: geometry.size.width * 0.4) // Set a minimum width of 40% of the column width
+                        }
+                        Spacer()
+                    } .padding(.bottom, 10)
+                        .fontWeight(.bold)
+                        .background(Color(.red))
+                        Divider()
+                    
                     ForEach(items, id: \.self) { item in
                         GridRow {
-                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
-    //                        Text(String(format:"%.2f", item.quantity))
-                            Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
-                                .gridColumnAlignment(.leading)
-                            Text(item.unitType.description).gridColumnAlignment(.leading)
-                            Text(item.name).gridColumnAlignment(.leading)
-                        }
+//                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+//    //                        Text(String(format:"%.2f", item.quantity))
+//                            Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
+//                                .gridColumnAlignment(.leading)
+//                            Text(item.unitType.description).gridColumnAlignment(.leading)
+//                            Text(item.name).gridColumnAlignment(.leading)
+                            GeometryReader { geometry in
+                                Image(systemName: item.collected ? "checkmark.square.fill" : "square")
+                                    .gridColumnAlignment(.center)
+                                    .frame(minWidth: geometry.size.width * 0.1) // Set a minimum width of 10% of the column width
+                                    .padding(.leading, 20)
+                                }
+                                GeometryReader { geometry in
+                                    Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
+                                        .gridColumnAlignment(.leading)
+                                        .frame(minWidth: geometry.size.width * 0.3) // Set a minimum width of 30% of the column width
+                                }
+                                GeometryReader { geometry in
+                                    Text(item.unitType.description)
+                                        .gridColumnAlignment(.leading)
+                                        .frame(minWidth: geometry.size.width * 0.2) // Set a minimum width of 20% of the column width
+                                }
+                                GeometryReader { geometry in
+                                    Text(item.name)
+                                        .gridColumnAlignment(.leading)
+                                        .frame(minWidth: geometry.size.width * 0.4) // Set a minimum width of 40% of the column width
+                                }
+                        } .padding(.bottom, 10)
+                        Divider()
                     }
                 }
+                .padding(.top)
             }
-            Divider()
             Spacer()
         }
-        .padding()
         
         
     }

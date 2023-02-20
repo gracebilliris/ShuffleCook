@@ -12,54 +12,86 @@ struct RecipeView: View {
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
-            VStack {
+            //            VStack {
+            //                Image(recipe.name)
+            //                    .resizable()
+            //                    .aspectRatio(contentMode: .fill)
+            //                    .frame(width: 150, height: 150)
+            //                    .clipped()
+            //                    .cornerRadius(15)
+            //                Text(recipe.name)
+            //                    .font(.title3)
+            //                    .fontWeight(.bold)
+            //                    .foregroundColor(Color("mainfont"))
+            //                    .padding(.leading)
+            //
+            //                        //                                            Text(recipe.totalTime)
+            //                        //                                                .foregroundColor(Color("subfont"))
+            //                        //
+            //                        //                                            Text(recipe.name)
+            //                        //                                                .font(.headline)
+            //                        //                                                .foregroundColor(Color("mainfont"))
+            //                        //                                                .fontWeight(.semibold)
+            //            }
+            //            .padding(.horizontal, 20)
+            //            .padding(.vertical, 20)
+            //            .background(Color(recipe.cardColor))
+            //            .clipShape(RoundedRectangle(cornerRadius: 15))
+            ////                                        .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
+            ZStack {
                 Image(recipe.name)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.bottom, 5)
-
-                   // .frame(height: 100)
-                
-                HStack {
-                    VStack (alignment: .leading){
-                        Text(recipe.name)
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("mainfont"))
-                        
-//                                            Text(recipe.totalTime)
-//                                                .foregroundColor(Color("subfont"))
-//
-//                                            Text(recipe.name)
-//                                                .font(.headline)
-//                                                .foregroundColor(Color("mainfont"))
-//                                                .fontWeight(.semibold)
-                    }
-                    
-                    Spacer()
-                }
+                    .frame(width: 170, height: 170)
+                    .aspectRatio(contentMode: .fill)
+                    .cornerRadius(15)
+                    .offset(y: -25)
+                ZStack {
+                    Rectangle()
+                            .fill(Color.white)
+                            .frame(height: 60)
+                            .offset()
+                    Text(recipe.name)
+                        .font(.headline)
+                        .foregroundColor(Color("mainfont"))
+//                    Spacer()
+                                            //                                            Text(recipe.totalTime)
+                        //                                                .foregroundColor(Color("subfont"))
+                        //
+                        //                                            Text(recipe.name)
+                        //                                                .font(.headline)
+                        //                                                .foregroundColor(Color("mainfont"))
+                        //                                                .fontWeight(.semibold)
+                } .offset(y: 80)
             }
+            .padding()
+            .frame(width: 170.0)
+            .frame(height: 220)
+            .background(Color(recipe.cardColor))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 10)
+            //                .background(in: Rectangle())
+            //            }
+            //        }
+            //        .padding()
+            //        .frame(width: 170.0)
+            //        .frame(height: 220)
+            //        .background(Color(recipe.cardColor))
+            //        .clipShape(RoundedRectangle(cornerRadius: 15))
+            //        .shadow(color: Color.gray.opacity(0.5), radius: 10, x:0, y: 10)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 20)
-        .frame(width: 160.0)
-        .frame(height: 200.0)
-        .background(Color(recipe.cardColor))
-        .clipShape(RoundedRectangle(cornerRadius: 15))
-        .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
     }
 }
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView(recipe: Recipe(id: 2,
-                                  name: "Noodles",
-                          ingredients: ["Noodles", "Capsicums"],
-                          totalTime: 10, // use Int as in CompleteRecipeView uses String(recipe.totalTime)
+        RecipeView(recipe: Recipe(id: 3,
+                                  name: "Margherita Pizza",
+                          ingredients: ["Tomato", "Dough"],
+                          totalTime: 15, // use Int as in CompleteRecipeView uses String(recipe.totalTime)
                           instructions: ["1.", "2.", "3."],
 //                          totalTime: "10",        // argument must precede "instructions"
                                   servings: 1,
-                          cardColor: "Color1"
+                          cardColor: "Color4"
                          ))
     }
 }

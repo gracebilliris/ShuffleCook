@@ -25,9 +25,9 @@ struct ShuffleView: View {
                         Text("Suggested Meal")
                             .font(.largeTitle)
                             .bold()
-                            .padding(.top, 30)
-                            .padding(.leading, 20)
-                            .frame(minHeight: 70, alignment: .leading)
+                            .padding(.leading, 15)
+                            .frame(maxHeight: 50)
+
                         Spacer()
                         
                         Button {
@@ -36,21 +36,21 @@ struct ShuffleView: View {
                             Image(systemName: "arrow.clockwise")
                                 .imageScale(.large)
                                 .foregroundColor(.blue)
-                                .padding(.top, 30)
                                 .padding(.trailing)
-                                .frame(alignment: .trailing)
                                 .onTapGesture (count: 1) {
                                     recipe = randomise()
+//                                    if !newShuffleRecipe {
+//                                        newShuffleRecipe = true
+//                                        recipe = randomise()
+//                                    }
                                 }
                         }
-                    }
+                    } .padding(.vertical)
                     
                     Divider()
-                        .frame(maxWidth: .infinity, maxHeight: 1)
-                        .padding(.top)
-                        .overlay(.gray.opacity(0))
+//                        .padding()
                     Spacer()
-                }
+                } 
                 VStack(alignment: .center) {
                     Image(recipe.name)
                         .resizable()
@@ -63,7 +63,7 @@ struct ShuffleView: View {
                         .bold()
                         .padding()
                     
-                    NavigationLink(destination: RecipeView(recipe: recipe)){ // must now merge into main to view a recipe
+                    NavigationLink(destination: RecipeView(recipe: recipe)){
                         VStack (alignment: .center) {
                             Text("Ingredients")
                                 .font(.subheadline)
@@ -78,7 +78,7 @@ struct ShuffleView: View {
                     .padding(.top)
                 }
             }
-        }
+        } //.onDisappear {newShuffleRecipe = false}
     }
 }
 
