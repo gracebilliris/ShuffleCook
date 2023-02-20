@@ -15,8 +15,7 @@ struct ShuffleView: View {
                 ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Noodles", index: 0),
                                Ingredient(quantity: 1, unitType: "Pcs", name: "Capsicum", index: 1)],
                         totalTime: 10, instructions: ["1.", "2.", "3."],
-                        servings: 1,
-                cardColor: "Color1"
+                        servings: 1
                )
     
     var body: some View {

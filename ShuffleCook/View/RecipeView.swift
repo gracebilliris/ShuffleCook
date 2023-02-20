@@ -28,11 +28,9 @@ struct RecipeView: View {
                             .foregroundColor(Color("mainfont"))
                         
 //                                            Text(recipe.totalTime)
-//                                                .foregroundColor(Color("subfont"))
 //
 //                                            Text(recipe.name)
 //                                                .font(.headline)
-//                                                .foregroundColor(Color("mainfont"))
 //                                                .fontWeight(.semibold)
                     }
                     
@@ -57,8 +55,7 @@ struct RecipeView_Previews: PreviewProvider {
                           ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Noodles", index: 0),
                                         Ingredient(quantity: 1, unitType: "Pcs", name: "Capsicum", index: 1)],
                                   totalTime: 10, instructions: ["1.", "2.", "3."],
-                                  servings: 1,
-                          cardColor: "Color1"
+                                  servings: 1
                          ))
     }
 }
