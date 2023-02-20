@@ -48,7 +48,8 @@ struct BrowseRecipeView: View {
                             ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
                                 recipe in
                                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
-                                    NavigationLink(destination: RecipeView(recipe: recipe)){
+                                    //NavigationLink(destination: RecipeView(recipe: recipe)){
+                                    NavigationLink(destination: CompleteRecipeView(recipe: recipe)){
                                         VStack {
                                             Image(recipe.name)
                                                 .resizable()

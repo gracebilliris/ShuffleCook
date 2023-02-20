@@ -8,6 +8,7 @@
 import Foundation
 
 var recipes: [Recipe] = load("recipeData.json")
+var globalSelectedRecipes: [Recipe] = []
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
