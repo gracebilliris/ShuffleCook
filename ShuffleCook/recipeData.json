@@ -2,97 +2,41 @@
     {
         "id": 1,
         "name": "Pear",
-        "servings": 1,
         "ingredients": [
             {
-                "quantity": "1",
                 "unitType": "Pcs",
+                "quantity": 1.0,
                 "name": "Pear",
-                "index": 0
+                "desc": "Ripe",
+                "index": 0,
             }
         ],
         "totalTime": 1,
         "instructions": ["1.", "2.", "3."],
+        "servings": 1,
         "cardColor": "Color1"
     },
     {
         "id": 2,
         "name": "Noodles",
-        "servings": 1,
         "ingredients": [
             {
-                "quantity": "1",
                 "unitType": "Pcs",
+                "quantity": 1.0,
                 "name": "Noodles",
-                "index": 0
-            }
-        ],
-        "totalTime": 25,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color2"
-    },
-    {
-        "id": 3,
-        "servings": 1,
-        "name": "Margherita Pizza",
-        "ingredients": [
+                "desc": "nude",
+                "index": 0,
+            },
             {
-                "quantity": "1",
                 "unitType": "Pcs",
-                "name": "Pizza base",
-                "index": 0
+                "quantity": 1.0,
+                "name": "Capsicum",
+                "index": 1,
             }
         ],
-        "totalTime": 15,
+        "totalTime": 1,
         "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color4"
-    },
-    {
-        "id": 4,
         "servings": 1,
-        "name": "Shepherds Pie",
-        "ingredients": [
-            {
-                "quantity": "1",
-                "unitType": "Pcs",
-                "name": "Pear",
-                "index": 0
-            }
-        ],
-        "totalTime": 10,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color3"
-    },
-    {
-        "id": 5,
-        "servings": 1,
-        "name": "Cheese Sandwich",
-        "ingredients": [
-            {
-                "quantity": "1",
-                "unitType": "Pcs",
-                "name": "Pear",
-                "index": 0
-            }
-        ],
-        "totalTime": 8,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color1"
-    },
-    {
-        "id": 6,
-        "name": "Omelette",
-        "servings": 1,
-        "ingredients": [
-            {
-                "quantity": "1",
-                "unitType": "Pcs",
-                "name": "Pear",
-                "index": 0
-            }
-        ],
-        "totalTime": 10,
-        "instructions": ["1.", "2.", "3."],
         "cardColor": "Color2"
     }
 ]

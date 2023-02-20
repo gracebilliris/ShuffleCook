@@ -10,20 +10,21 @@ import Foundation
 struct Ingredient: Hashable, Codable { //, Identifiable
 //    var id: ObjectIdentifier
     
-    var unitType : UnitType
+//    var unitType : UnitType
+    var unitType : String
     var quantity : Float
     var name : String
     var desc : String?
     var index : Int
     
-    init(quantity: Float, unitType: UnitType, name: String, index: Int){
+    init(quantity: Float, unitType: String, name: String, index: Int){
         self.quantity = quantity
         self.unitType = unitType
         self.name = name
         self.index = index
     }
     
-    init(quantity: Float, unitType: UnitType, name: String, desc: String, index: Int){
+    init(quantity: Float, unitType: String, name: String, desc: String, index: Int){
         self.quantity = quantity
         self.unitType = unitType
         self.name = name

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-private var item1 = ListItem(collected: true, unitType: UnitType.Kg, quantity: 1.5, name: "Flour", recipeId: "")
-var item2 = ListItem(collected: false, unitType: UnitType.Pcs, quantity: 6, name: "Eggs", recipeId: "")
+private var item1 = ListItem(collected: true, unitType: "Kg", quantity: 1.5, name: "Flour", recipeId: "")
+var item2 = ListItem(collected: false, unitType: "Pcs", quantity: 6, name: "Eggs", recipeId: "")
 private var items: [ListItem] = [item1, item2]
 //private var items: [ListItem] = [ListItem]()
 //items.append(item1)
@@ -117,7 +117,7 @@ struct ShoppingListView: View {
                         GridRow {
                             Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
     //                        Text(String(format:"%.2f", item.quantity))
-                            Text((item.unitType == UnitType.Pcs) ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
+                            Text((item.unitType == "Pcs") ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
                                 .gridColumnAlignment(.leading)
                             Text(item.unitType.description).gridColumnAlignment(.leading)
                             Text(item.name).gridColumnAlignment(.leading)
@@ -176,9 +176,9 @@ struct ShoppingListView_Previews: PreviewProvider {
         ShoppingListView(selectedRecipe: [Recipe(id: 3,
                                  name: "Margherita Pizza",
                                  ingredients: [
-                                    Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Tomato", index: 0),
-                                    Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Pizza Base", index: 1),
-                                    Ingredient(quantity: 100, unitType: UnitType.g, name: "Cheese", index: 2),
+                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Tomato", index: 0),
+                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Pizza Base", index: 1),
+                                    Ingredient(quantity: 100, unitType: "Pcs", name: "Cheese", index: 2),
                                  ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                  servings: 4,
@@ -186,8 +186,8 @@ struct ShoppingListView_Previews: PreviewProvider {
                                 ),
                           Recipe(id: 2, name: "Shepherds Pie",
                                  ingredients: [
-                                    Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Potato", index: 0),
-                                    Ingredient(quantity: 40.56, unitType: UnitType.Kg, name: "Cherry Tomatoes", index: 1),
+                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Potato", index: 0),
+                                    Ingredient(quantity: 40.56, unitType: "Kg", name: "Cherry Tomatoes", index: 1),
                                  ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                  servings: 4,
@@ -196,8 +196,8 @@ struct ShoppingListView_Previews: PreviewProvider {
                           Recipe(id: 1,
                                  name: "Cheese Sandwich",
                                  ingredients: [
-                                    Ingredient(quantity: 2, unitType: UnitType.Pcs, name: "Slice of Bread", index: 0),
-                                    Ingredient(quantity: 100, unitType: UnitType.g, name: "Cheese", index: 1),
+                                    Ingredient(quantity: 2, unitType: "Pcs", name: "Slice of Bread", index: 0),
+                                    Ingredient(quantity: 100, unitType: "g", name: "Cheese", index: 1),
                                 ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
                                  servings: 4,
