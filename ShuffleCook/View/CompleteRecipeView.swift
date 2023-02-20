@@ -75,131 +75,129 @@ struct CompleteRecipeView: View {
 //    , instructions: ["1. 2. "], )
 //
     var body: some View {
-        let forceUpdate = ShoppingListView();
-        
-        
-        HStack {
-            VStack {
-                HStack {
-                    ScrollView{
-                        VStack {
-                            //whole stack
-                            VStack(alignment: .center) {
-                                //page Title, add to list Hstack
-                                HStack(alignment: .center, spacing: 150.0){
-                                    Text("Recipe")
-                                        .font(.largeTitle)
-                                        .fontWeight(.heavy)
-                                        .frame(width: 115.0)
-                                    Button("+ Add to list") {
-                                        model.globalSelectedRecipes.append(recipe)
-//                                        globalSelectedRecipes.append(recipe)
-//                                        forceUpdate.update()
-                                    }
-                                    .frame(width: 100.0)
-                                }
-                                
-                                .padding(1.0)
-                                Divider()
-                                
-                                //name, total time and recipe image Hstack
-                                HStack(alignment: .center){
-                                    Image(recipe.name)
-                                        .resizable()
-                                        .frame(width: 200, height: 200)
-                                        .cornerRadius(38)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(recipe.name)
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                            .multilineTextAlignment(.leading)
-                                            .padding()
-                                        
-                                        Text("Total Time: " + String(recipe.totalTime))
-                                            .font(.headline)
-                                            .multilineTextAlignment(.leading)
-                                            .padding()
-                                        
-                                        Text("Servings: " + String(recipe.servings))
-                                            .font(.headline)
-                                            .multilineTextAlignment(.leading)
-                                            .padding()
-                                    }
-                                    .frame(width: 150.0, height: 250.0)
-                                }
-                                
-                                Spacer()
-                                
-                                Text("Ingredients:")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .multilineTextAlignment(.leading)
-                                    .position(x:60,y:10)
-                                    .padding(.leading, 20)
-
-                                // New version of drawing the list of ingredients with new model.
-                                // Feel free to rearrange and stylise!
-                                Grid() {
-                                    ForEach(recipe.ingredients, id: \.index) { ingr in
-                                        GridRow(){
-//                                            Text((ingr.unitType == UnitType.Pcs) ? String(format:"%.0f", ingr.quantity) : String(format:"%.2f", ingr.quantity))
-                                            Text((ingr.unitType == "Pcs") ? String(format:"%.0f", ingr.quantity) : String(format:"%.2f", ingr.quantity))
-                                            Text(ingr.unitType)//.description
-                                            Text(ingr.name)
-                                            Text(ingr.desc ?? "")
-                                        }
-                                    }
-                                }
-//                                Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
-//                                    .multilineTextAlignment(.leading)
-//                                    .padding()
-                                    
-                                    
-                                //for each)
-                                
-
-
-                                
-                            }
-                            .padding()
-                            
+        VStack{
+            //page Title, add to list Hstack
+            HStack(alignment: .center, spacing: 150){
+                Text("Recipe")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .frame(width: 115.0)
+                    .multilineTextAlignment(.leading)
+                    .padding(.bottom)
+                Button("+ Add to list") {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                }.padding(.bottom)
+                .frame(width: 100.0)
+            }.padding(1.0)
+            
+            Divider()
+            
+            ScrollView{
+                VStack {
 
                     
+                    //whole stack
+                    VStack(alignment: .center) {
+                        Text(recipe.name)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .padding()
+  
+                        //name, total time and recipe image Hstack
+                        HStack(alignment: .center){
+                            Image(recipe.name)
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .cornerRadius(38)
                             
-                            
-    //                        ScrollView(.vertical, showsIndicators: false){
-    //                            ForEach(recipe.ingredients){ ingredient in
-    //                                Text(String(ingredient))
-    //                                //                         \\array [0, 1, 2, 3] indices
-    //                                //                            Text(
-    //                            }
-    //                        }
-    //                        .padding(.trailing, 20)
-    //                        .padding(.leading, 20)
-    //                        .padding(.top, 5)
-                            //Text("Here")
-                            
-                            
-                            
-    //                        ForEach()
-    //                        Text(recipe.ingredients)
-    //                            .multilineTextAlignment(.leading)
-    //                            .lineLimit(10)
-    //                            .frame(height: 100.0)
-    //
-    //                        Text(recipe.instructions)
-    //                            .multilineTextAlignment(.leading)
-    //                            .lineLimit(10)
-    //                            .frame(height: 100.0)
+                            VStack(alignment: .leading){
+                                
+                                //total time VStack
+                                VStack{
+                                    Text("Total Time")
+                                        .font(.headline)
+                                        .multilineTextAlignment(.leading)
+                                    Text(String(recipe.totalTime) + " minutes \n").multilineTextAlignment(.leading)
                                     
-                        }
-            //scroll view closer below me
+                                    Text("Servings").font(.headline).multilineTextAlignment(.leading)
+
+                                    Text(String(recipe.servings)).multilineTextAlignment(.leading)
+                                    
+                                }.padding(.leading)
+                                
+                                      
+                                
+                                
+                            }
+                            .frame(width: 150.0, height: 200.0)
+                        }.frame(width: 375, height: 200)
+                        
+                        Spacer()
+                        
+                        Text("Ingredients")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .position(x:60,y:10)
+                            .padding(.leading, 10)
+                        
+                        Spacer()
+                        
+                        // New version of drawing the list of ingredients with new model.
+                        // Feel free to rearrange and stylise!
+                        
+                        Grid(alignment:.leading) {
+
+                            ForEach(recipe.ingredients, id: \.index) { ingr in
+                                GridRow(){
+                                    //                                            Text((ingr.unitType == UnitType.Pcs) ? String(format:"%.0f", ingr.quantity) : String(format:"%.2f", ingr.quantity))
+                                    Text((ingr.unitType == "Pcs") ? String(format:"%.0f", ingr.quantity) :
+                                            String(format:"%.0f", ingr.quantity) + " " + ingr.unitType)
+                                    
+//                                  if else for comma inclusion down here
+
+                                    
+                                    
+                                    
+                                    //IF the thing doesnt work just use this
+                                    Text(ingr.name + ", " + (ingr.desc ?? " ")).multilineTextAlignment(.leading)
+
+                                    
+                                }
+                                Divider()
+                                //padding here?
+                            }
+                        }.padding(.leading, 10)
+                        
+                        Spacer()
+                        
+                        Text("Instructions")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .position(x:60,y:10)
+                            .padding(.leading, 10)
+                        
+                        Spacer()
+
+                       
+                        
+                        Text(recipe.instructions.joined(separator: "\n\n")).multilineTextAlignment(.leading).padding(.leading)
+
+                        
+                        //for each)
+                        
+                        
+                        
+                        
                     }
+                    .padding()
+                    
                 }
- 
+                //scroll view closer below me
             }
         }
-//View closed
+        
     }
 }
