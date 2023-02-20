@@ -9,8 +9,8 @@ import SwiftUI
 
 private var item1 = ListItem(collected: true, unitType: "Kg", quantity: 1.5, name: "Flour", recipeId: "")
 var item2 = ListItem(collected: false, unitType: "Pcs", quantity: 6, name: "Eggs", recipeId: "")
-private var items: [ListItem] = [item1, item2]
-//private var items: [ListItem] = [ListItem]()
+//private var items: [ListItem] = [item1, item2]
+private var items: [ListItem] = [ListItem]()
 //items.append(item1)
 //items.append(item2)
 
@@ -18,6 +18,9 @@ struct ShoppingListView: View {
     //@State var selectedRecipe:[Recipe]
     @State var text = ""
     @State var editMode = false
+//    @ObservedObject var observer = Observer()
+//    @State var items: [ListItem] = []
+    @EnvironmentObject var model: Model
     var body: some View {
         VStack (alignment: .leading){
             let _: () = assembleShoppingList()
@@ -49,7 +52,7 @@ struct ShoppingListView: View {
             
             ScrollView(.horizontal){
                 HStack(spacing: 10) {
-                    ForEach(globalSelectedRecipes) { rec in
+                    ForEach(model.globalSelectedRecipes) { rec in
                         ZStack{
                             
                             RecipeView(recipe: rec)
@@ -110,18 +113,19 @@ struct ShoppingListView: View {
         .padding()
         
         
-    }
+    }//.onAppear(perform: assembleShoppingList())
+//        .onReceive(<#T##P#>, perform: <#T##(P.Output) -> Void#>)
     
     private func removeRecipe(recipe: Recipe){
         var index = -1
-        for i in 0..<globalSelectedRecipes.count{
-            if (globalSelectedRecipes[i].name == recipe.name){
+        for i in 0..<model.globalSelectedRecipes.count{
+            if (model.globalSelectedRecipes[i].name == recipe.name){
                 index = i
                 break
             }
         }
         if (index != -1){
-            globalSelectedRecipes.remove(at: index)
+            model.globalSelectedRecipes.remove(at: index)
         }
         print("func removeRecipe removing at index: " + String(index))
     }
@@ -130,21 +134,26 @@ struct ShoppingListView: View {
         editMode = !editMode
     }
     
+    public func update(){
+        editMode = !editMode
+        editMode = !editMode
+    }
+    
     private func assembleShoppingList(){
         items = []
         //selectedRecipe
-        for recit in 0..<globalSelectedRecipes.count{
-            for ingr in 0..<globalSelectedRecipes[recit].ingredients.count{
+        for recit in 0..<model.globalSelectedRecipes.count{
+            for ingr in 0..<model.globalSelectedRecipes[recit].ingredients.count{
 //                if (items.contains(where: {$0.name == selectedRecipe[recit].name})){
 //                    print(selectedRecipe[recit].name + " already exists in list, adding to quantity")
 //                    let index = items.firstIndex(where: {$0.name == selectedRecipe[recit].name})
 //                    items[index].quantity += selectedRecipe[recit].ingredients[ingr].quantity
 //                }
-                if let row = items.firstIndex(where: {$0.name == globalSelectedRecipes[recit].name}) {
-                    items[row].quantity += globalSelectedRecipes[recit].ingredients[ingr].quantity
+                if let row = items.firstIndex(where: {$0.name == model.globalSelectedRecipes[recit].ingredients[ingr].name}) {
+                    items[row].quantity += model.globalSelectedRecipes[recit].ingredients[ingr].quantity
                 }
                 else {
-                    items.append(ListItem(collected: false, unitType: globalSelectedRecipes[recit].ingredients[ingr].unitType, quantity: globalSelectedRecipes[recit].ingredients[ingr].quantity, name: globalSelectedRecipes[recit].ingredients[ingr].name, recipeId: String(globalSelectedRecipes[recit].id)))
+                    items.append(ListItem(collected: false, unitType: model.globalSelectedRecipes[recit].ingredients[ingr].unitType, quantity: model.globalSelectedRecipes[recit].ingredients[ingr].quantity, name: model.globalSelectedRecipes[recit].ingredients[ingr].name, recipeId: String(model.globalSelectedRecipes[recit].id)))
                 }
             }
         }

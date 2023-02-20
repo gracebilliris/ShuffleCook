@@ -10,9 +10,15 @@ import SwiftUI
 @main
 struct ShuffleCookApp: App {
     
+    @StateObject var model = Model()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(model)
+                .onAppear(){
+                    model.recipes = model.load("recipeData.json")
+                }
         }
     }
 }

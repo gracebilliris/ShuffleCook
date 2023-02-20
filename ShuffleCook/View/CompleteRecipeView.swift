@@ -41,6 +41,8 @@ import UIKit
 struct CompleteRecipeView: View {
     //@State public var selectedRecipes: [Recipe]
     @State var recipe: Recipe
+    @EnvironmentObject var model: Model
+    //var edit = ShoppingListView.editAction
 //    private var recipe = Recipe(id: 7,
 //                                name: "Prawn & Kimchi Fried Rice",
 ////                                ingredients: [Ingredient(quantity: 1, unitType: UnitType.Pcs, name: "Lebanese Cucumber", desc: "cut into matchsticks", index: 0),
@@ -73,6 +75,9 @@ struct CompleteRecipeView: View {
 //    , instructions: ["1. 2. "], )
 //
     var body: some View {
+        let forceUpdate = ShoppingListView();
+        
+        
         HStack {
             VStack {
                 HStack {
@@ -87,7 +92,9 @@ struct CompleteRecipeView: View {
                                         .fontWeight(.heavy)
                                         .frame(width: 115.0)
                                     Button("+ Add to list") {
-                                        globalSelectedRecipes.append(recipe)
+                                        model.globalSelectedRecipes.append(recipe)
+//                                        globalSelectedRecipes.append(recipe)
+//                                        forceUpdate.update()
                                     }
                                     .frame(width: 100.0)
                                 }

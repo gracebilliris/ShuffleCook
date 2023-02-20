@@ -12,7 +12,7 @@ import Foundation
 struct MainView: View {
     
     @State var name: String = ""
-    @State public var selectedRecipes: [Recipe] = []
+//    @State public var selectedRecipes: [Recipe] = []
 
     var body: some View {
         TabView {

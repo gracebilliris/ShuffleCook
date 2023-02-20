@@ -14,6 +14,8 @@ struct BrowseRecipeView: View {
     @State var text = ""
     
     @State private var goToNewView: Bool = false
+    
+    @EnvironmentObject var model: Model
 
 //    init() {
 //        print("recipes : \(String(describing: recipes))")
@@ -45,7 +47,7 @@ struct BrowseRecipeView: View {
                     
                     ScrollView(.vertical, showsIndicators: false){
                         LazyVGrid(columns: columns, spacing: 20){
-                            ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
+                            ForEach(model.recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
                                 recipe in
                                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
                                     //NavigationLink(destination: RecipeView(recipe: recipe)){
