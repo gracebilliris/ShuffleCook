@@ -43,29 +43,17 @@ struct ShoppingListView: View {
         VStack (alignment: .leading){
             
             // HEADER / NAVIGATION
-            Text("Shopping List")
-                .font(.largeTitle)
-                .padding(.top, 30)
-                .padding(.leading, 30)
-                .foregroundColor(Color("mainfont"))
+            HStack {
+                Text("Shopping List")
+                    .font(.largeTitle)
+                    .bold()
+                Spacer()
+                Button((editMode ? "Save" : "Edit")) {
+                    editAction()
+                }
+            } .padding(.horizontal)
+                .padding(.vertical)
             
-            Button((editMode ? "Save" : "Edit")) {
-                editAction()
-            }.offset(x: 320, y: -30)
-            
-//            Divider()
-//                .frame(minWidth: 100)
-//                .frame(height: 1)
-//                .overlay(.gray.opacity(0))
-
-//            SearchBar(text: $text)
-//                .padding(.leading, 20)
-//                .padding(.trailing, 20)
-            
-            Divider()
-                .frame(minWidth: 100)
-                .frame(height: 1)
-                .overlay(.gray.opacity(0))
             // END HEADER / NAVIGATION
             
             ScrollView(.horizontal){
@@ -76,7 +64,8 @@ struct ShoppingListView: View {
                             RecipeView(recipe: rec)
 //                            let _ = print("Rendering selected recipe: " + rec.name)
                             if (editMode){
-                                Button(role: .destructive){
+                                Button(role: .destructive)
+                                    {
                                     print("Removing recipe from list:")
                                     print("rec: " + rec.name)
                                     removeRecipe(recipe: rec)
@@ -100,10 +89,15 @@ struct ShoppingListView: View {
                 Spacer()
             }
             .frame(height: 220.0)
-            Divider()
             
             ScrollView(.vertical) {
                 Grid() {
+//                    GridRow  {
+//                        Image(systemName: "square").gridColumnAlignment(.center)
+//                        Text("Quantity").gridColumnAlignment(.leading)
+//                        Text("Unit").gridColumnAlignment(.leading)
+//                        Text("Product").gridColumnAlignment(.leading)
+//                    }
                     GridRow  {
                         Image(systemName: "square").gridColumnAlignment(.center)
                         Text("Quantity").gridColumnAlignment(.leading)
@@ -124,11 +118,10 @@ struct ShoppingListView: View {
                         }
                     }
                 }
+                .padding(.top)
             }
-            Divider()
             Spacer()
         }
-        .padding()
         
         
     }

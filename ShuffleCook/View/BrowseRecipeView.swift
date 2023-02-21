@@ -13,11 +13,6 @@ struct BrowseRecipeView: View {
     
     @State var text = ""
     
-    @State private var goToNewView: Bool = false
-
-//    init() {
-//        print("recipes : \(String(describing: recipes))")
-//    }
     
     var body: some View {
         ZStack {
@@ -25,66 +20,26 @@ struct BrowseRecipeView: View {
                 VStack (alignment: .leading){
                     Text("Browse")
                         .font(.largeTitle)
-                        .padding(.top, 30)
-                        .padding(.leading, 30)
-                        .foregroundColor(Color("mainfont"))
-                    
-                    Divider()
-                        .frame(minWidth: 100)
-                        .frame(height: 1)
-                        .overlay(.gray.opacity(0))
+                        .bold()
+                        .padding(.top, 10)
+                        .padding(.leading, 15)
+                        .frame(maxHeight: 60)
                     
                     SearchBar(text: $text)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 20)
-                    
-                    Divider()
-                        .frame(minWidth: 100)
-                        .frame(height: 1)
-                        .overlay(.gray.opacity(0))
-                    
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                                            
                     ScrollView(.vertical, showsIndicators: false){
                         LazyVGrid(columns: columns, spacing: 20){
                             ForEach(recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
                                 recipe in
-                                ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
+                                ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)){
                                     NavigationLink(destination: RecipeView(recipe: recipe)){
-                                        VStack {
-                                            Image(recipe.name)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(height: 150)
-                                            
-                                            HStack {
-                                                VStack (alignment: .leading){
-                                                    Text(recipe.name)
-                                                        .font(.title3)
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(Color("mainfont"))
-                                                    
-                                                    //                                            Text(recipe.totalTime)
-                                                    //
-                                                    //                                            Text(recipe.name)
-                                                    //                                                .font(.headline)
-                                                    //
-                                                    //                                                .fontWeight(.semibold)
-                                                }
-                                                
-                                                Spacer()
-                                            }
-                                        }
-                                        .padding(.horizontal, 20)
-                                        .padding(.vertical, 20)
-                                        .background(Color(recipe.cardColor))
-                                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                                        .shadow(color: Color(recipe.cardColor).opacity(0.5), radius: 10, x:0, y: 10)
+                                      RecipeView(recipe: recipe)
                                     }
                                 }
                             }
-                            .padding(.trailing, 20)
-                            .padding(.leading, 20)
-                            .padding(.top, 5)
-                        }
+                        } .padding(/*@START_MENU_TOKEN@*/.all, 5.0/*@END_MENU_TOKEN@*/)
                     }
                 }
             }
