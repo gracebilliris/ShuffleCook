@@ -154,8 +154,8 @@ struct CompleteRecipeView: View {
                             
                             
                             //ingredients
-                            Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
-                                .padding()
+//                            Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
+//                                .padding()
                                 
                                 
                             

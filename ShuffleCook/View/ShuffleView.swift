@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 func randomise() -> Recipe {
-    return recipes.randomElement() ?? Recipe(id: 1, name: "Cheese Sandwich",ingredients: ["Beef"], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4, cardColor: "Color1");
+    return recipes.randomElement() ?? Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4);
 }
 
 struct ShuffleView: View {

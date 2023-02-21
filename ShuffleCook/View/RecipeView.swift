@@ -66,7 +66,7 @@ struct RecipeView: View {
             .padding()
             .frame(width: 170.0)
             .frame(height: 220)
-            .background(Color(recipe.cardColor))
+//            .background(Color(recipe.cardColor))
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 10)
             //                .background(in: Rectangle())
