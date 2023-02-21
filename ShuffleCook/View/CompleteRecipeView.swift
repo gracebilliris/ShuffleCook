@@ -71,6 +71,7 @@ struct CompleteRecipeView: View {
                                 .resizable()
                                 .frame(width: 200, height: 200)
                                 .cornerRadius(38)
+                                .padding()
                             
                             VStack(alignment: .leading){
                                 
@@ -114,26 +115,29 @@ struct CompleteRecipeView: View {
 
                                     //IF the thing doesnt work just use this
                                     Text(ingr.name + ", " + (ingr.desc ?? " ")).multilineTextAlignment(.leading)
+                                        
 
                                 }
                                 Divider()
                             }
                         }
-                        .frame(height: 250.0)
-                        .padding(.leading, 10)
-                        .padding(.trailing, 10)
+                        
+                        .padding()
                         
                         Spacer()
                         
                         VStack(){
-                            Text("Ingredients:")
+                            Text("Instructions:")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading)
                                 .position(x:60,y:10)
+                                .padding()
                             
                             Text(recipe.instructions.joined(separator: "\n "))
                                 .multilineTextAlignment(.leading)
+                                
+                            
                         }
                     }
                     .padding()
