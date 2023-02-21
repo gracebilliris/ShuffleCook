@@ -9,39 +9,20 @@ import SwiftUI
 
 private var item1 = ListItem(collected: true, unitType: "Kg", quantity: 1.5, name: "Flour", recipeId: "")
 var item2 = ListItem(collected: false, unitType: "Pcs", quantity: 6, name: "Eggs", recipeId: "")
-private var items: [ListItem] = [item1, item2]
-//private var items: [ListItem] = [ListItem]()
+//private var items: [ListItem] = [item1, item2]
+private var items: [ListItem] = [ListItem]()
 //items.append(item1)
 //items.append(item2)
 
-//var recipesSelected: [Recipe] = [Recipe(id: 3,
-//                                        name: "Margherita Pizza",
-//                                        ingredients: ["Tomato"],
-//                                        totalTime: 10, instructions: ["1.", "2.", "3."],
-//                                        servings: 4,
-//                                        cardColor: "Color4"
-//                                       ),
-//                                 Recipe(id: 2, name: "Shepherds Pie",
-//                                        ingredients: ["Beef"],
-//                                        totalTime: 10, instructions: ["1.", "2.", "3."],
-//                                        servings: 4,
-//                                        cardColor: "Color3"
-//                                       ),
-//                                 Recipe(id: 1,
-//                                        name: "Cheese Sandwich",
-//                                        ingredients: ["Beef"],
-//                                        totalTime: 10, instructions: ["1.", "2.", "3."],
-//                                        servings: 4,
-//                                        cardColor: "Color1"
-//                                       )]
-
 struct ShoppingListView: View {
-    @State var selectedRecipe:[Recipe]
+    //@State var selectedRecipe:[Recipe]
     @State var text = ""
     @State var editMode = false
+//    @State var items: [ListItem] = []
+    @EnvironmentObject var model: Model
     var body: some View {
         VStack (alignment: .leading){
-            
+            let _: () = assembleShoppingList()
             // HEADER / NAVIGATION
             HStack {
                 Text("Shopping List")
@@ -53,16 +34,15 @@ struct ShoppingListView: View {
                 }
             } .padding(.horizontal)
                 .padding(.vertical)
-            
+                
             // END HEADER / NAVIGATION
             
             ScrollView(.horizontal){
                 HStack(spacing: 10) {
-                    ForEach(selectedRecipe) { rec in
+                    ForEach(model.globalSelectedRecipes) { rec in
                         ZStack{
                             
                             RecipeView(recipe: rec)
-//                            let _ = print("Rendering selected recipe: " + rec.name)
                             if (editMode){
                                 Button(role: .destructive)
                                     {
@@ -74,18 +54,14 @@ struct ShoppingListView: View {
                                 } label: {
                                     Image(systemName: "xmark.app.fill")
                                         .imageScale(Image.Scale.large)
-                                       // .offset(x: 80, y:-100)
-//                                        .position(x: 190, y:75)
                                         .shadow(radius: 2)
                                 }
                                 .offset(x: 80, y:-100)
-                                //.onTapGesture(perform: <#T##() -> Void#>)
                             }
                         }
                     }
                 }.padding()
                 .frame(height: 230)
-                //Divider()
                 Spacer()
             }
             .frame(height: 220.0)
@@ -106,10 +82,21 @@ struct ShoppingListView: View {
                         //Spacer()
                         //Divider()
                     }
-                    let _: () = assembleShoppingList()
+//                    let _: () = assembleShoppingList()
                     ForEach(items, id: \.self) { item in
                         GridRow {
-                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                            Button(){
+                                //item.changeCollected()
+                                if let row = items.firstIndex(where: {$0.self == item.self}) {
+//                                    items[row].changeCollected()
+                                    items[row].collected = !items[row].collected
+                                    print("Button pressed on row: " + String(row) + "\nCollected: " + String(items[row].collected) + ",\tname: " + String(items[row].name))
+                                }
+                            } label: {
+                                Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                                let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
+                            }
+//                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
     //                        Text(String(format:"%.2f", item.quantity))
                             Text((item.unitType == "Pcs") ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
                                 .gridColumnAlignment(.leading)
@@ -124,18 +111,19 @@ struct ShoppingListView: View {
         }
         
         
-    }
+    }//.onAppear(perform: assembleShoppingList())
+//        .onReceive(<#T##P#>, perform: <#T##(P.Output) -> Void#>)
     
     private func removeRecipe(recipe: Recipe){
         var index = -1
-        for i in 0..<selectedRecipe.count{
-            if (selectedRecipe[i].name == recipe.name){
+        for i in 0..<model.globalSelectedRecipes.count{
+            if (model.globalSelectedRecipes[i].name == recipe.name){
                 index = i
                 break
             }
         }
         if (index != -1){
-            selectedRecipe.remove(at: index)
+            model.globalSelectedRecipes.remove(at: index)
         }
         print("func removeRecipe removing at index: " + String(index))
     }
@@ -144,20 +132,26 @@ struct ShoppingListView: View {
         editMode = !editMode
     }
     
+    public func update(){
+        editMode = !editMode
+        editMode = !editMode
+    }
+    
     private func assembleShoppingList(){
         items = []
-        for recit in 0..<selectedRecipe.count{
-            for ingr in 0..<selectedRecipe[recit].ingredients.count{
+        //selectedRecipe
+        for recit in 0..<model.globalSelectedRecipes.count{
+            for ingr in 0..<model.globalSelectedRecipes[recit].ingredients.count{
 //                if (items.contains(where: {$0.name == selectedRecipe[recit].name})){
 //                    print(selectedRecipe[recit].name + " already exists in list, adding to quantity")
 //                    let index = items.firstIndex(where: {$0.name == selectedRecipe[recit].name})
 //                    items[index].quantity += selectedRecipe[recit].ingredients[ingr].quantity
 //                }
-                if let row = items.firstIndex(where: {$0.name == selectedRecipe[recit].name}) {
-                    items[row].quantity += selectedRecipe[recit].ingredients[ingr].quantity
+                if let row = items.firstIndex(where: {$0.name == model.globalSelectedRecipes[recit].ingredients[ingr].name}) {
+                    items[row].quantity += model.globalSelectedRecipes[recit].ingredients[ingr].quantity
                 }
                 else {
-                    items.append(ListItem(collected: false, unitType: selectedRecipe[recit].ingredients[ingr].unitType, quantity: selectedRecipe[recit].ingredients[ingr].quantity, name: selectedRecipe[recit].ingredients[ingr].name, recipeId: String(selectedRecipe[recit].id)))
+                    items.append(ListItem(collected: false, unitType: model.globalSelectedRecipes[recit].ingredients[ingr].unitType, quantity: model.globalSelectedRecipes[recit].ingredients[ingr].quantity, name: model.globalSelectedRecipes[recit].ingredients[ingr].name, recipeId: String(model.globalSelectedRecipes[recit].id)))
                 }
             }
         }
@@ -166,32 +160,37 @@ struct ShoppingListView: View {
 
 struct ShoppingListView_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingListView(selectedRecipe: [Recipe(id: 3,
-                                 name: "Margherita Pizza",
-                                 ingredients: [
-                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Tomato", index: 0),
-                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Pizza Base", index: 1),
-                                    Ingredient(quantity: 100, unitType: "Pcs", name: "Cheese", index: 2),
-                                 ],
-                                 totalTime: 10, instructions: ["1.", "2.", "3."],
-                                 servings: 4
-                                ),
-                          Recipe(id: 2, name: "Shepherds Pie",
-                                 ingredients: [
-                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Potato", index: 0),
-                                    Ingredient(quantity: 40.56, unitType: "Kg", name: "Cherry Tomatoes", index: 1),
-                                 ],
-                                 totalTime: 10, instructions: ["1.", "2.", "3."],
-                                 servings: 4
-                                ),
-                          Recipe(id: 1,
-                                 name: "Cheese Sandwich",
-                                 ingredients: [
-                                    Ingredient(quantity: 2, unitType: "Pcs", name: "Slice of Bread", index: 0),
-                                    Ingredient(quantity: 100, unitType: "g", name: "Cheese", index: 1),
-                                ],
-                                 totalTime: 10, instructions: ["1.", "2.", "3."],
-                                 servings: 4
-                                )])
+        ShoppingListView()
+        //        ShoppingListView(selectedRecipe: [Recipe(id: 3,
+        //                                 name: "Margherita Pizza",
+        //                                 ingredients: [
+        //                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Tomato", index: 0),
+        //                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Pizza Base", index: 1),
+        //                                    Ingredient(quantity: 100, unitType: "Pcs", name: "Cheese", index: 2),
+        //                                 ],
+        //                                 totalTime: 10, instructions: ["1.", "2.", "3."],
+        //                                 servings: 4,
+        //                                 cardColor: "Color4"
+        //                                ),
+        //                          Recipe(id: 2, name: "Shepherds Pie",
+        //                                 ingredients: [
+        //                                    Ingredient(quantity: 1, unitType: "Pcs", name: "Potato", index: 0),
+        //                                    Ingredient(quantity: 40.56, unitType: "Kg", name: "Cherry Tomatoes", index: 1),
+        //                                 ],
+        //                                 totalTime: 10, instructions: ["1.", "2.", "3."],
+        //                                 servings: 4,
+        //                                 cardColor: "Color3"
+        //                                ),
+        //                          Recipe(id: 1,
+        //                                 name: "Cheese Sandwich",
+        //                                 ingredients: [
+        //                                    Ingredient(quantity: 2, unitType: "Pcs", name: "Slice of Bread", index: 0),
+        //                                    Ingredient(quantity: 100, unitType: "g", name: "Cheese", index: 1),
+        //                                ],
+        //                                 totalTime: 10, instructions: ["1.", "2.", "3."],
+        //                                 servings: 4,
+        //                                 cardColor: "Color1"
+        //                                )])
+        //    }
     }
 }

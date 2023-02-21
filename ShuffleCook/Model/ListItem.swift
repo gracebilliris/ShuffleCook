@@ -34,4 +34,8 @@ struct ListItem: Hashable {
     var quantity : Float
     var name : String
     var recipeId : String
+    
+    mutating func changeCollected() -> () {
+        self.collected = !self.collected
+    }
 }

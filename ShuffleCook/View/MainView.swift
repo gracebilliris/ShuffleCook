@@ -12,7 +12,7 @@ import Foundation
 struct MainView: View {
     
     @State var name: String = ""
-    @State public var selectedRecipes: [Recipe] = []
+//    @State public var selectedRecipes: [Recipe] = []
 
     var body: some View {
         TabView {
@@ -26,7 +26,7 @@ struct MainView: View {
                     Label("Shuffle", systemImage: "shuffle")
                 }
             
-            ShoppingListView(selectedRecipe: selectedRecipes)
+            ShoppingListView()//selectedRecipe: selectedRecipes
                 .tabItem {
                     Label("Shopping", systemImage: "list.dash")
                 }
