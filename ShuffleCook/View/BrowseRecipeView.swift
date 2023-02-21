@@ -63,11 +63,10 @@ struct BrowseRecipeView: View {
                                                         .foregroundColor(Color("mainfont"))
                                                     
                                                     //                                            Text(recipe.totalTime)
-                                                    //                                                .foregroundColor(Color("subfont"))
                                                     //
                                                     //                                            Text(recipe.name)
                                                     //                                                .font(.headline)
-                                                    //                                                .foregroundColor(Color("mainfont"))
+                                                    //
                                                     //                                                .fontWeight(.semibold)
                                                 }
                                                 

@@ -50,8 +50,7 @@ struct CompleteRecipeView: View {
                                                               "2. Heat half the peanut oil in a wok or large non-stick frying pan over medium heat. Add the prawns and corn kernels and stir-fry for 3 mins or until prawns curl and change colour. Add the kimchi and stir-fry for 1 min or until heated through. Transfer the prawn mixture to a large bowl.",
                                                               "3.Heat remaining oil in the wok or pan over high heat. Add the rice and stir-fry for 3 mins or until heated through. Add the kimchi liquid and stir-fry for 1 min or until liquid evaporates. Use a spatula to move rice to the edge of the wok or pan. Pour egg into centre of wok or pan and cook until just set. Break up egg and stir to combine with rice mixture. Return the prawn mixture to wok or pan and mix until well combined and heated through.",
                                                               "4. Divide rice mixture among serving bowls. Top with cucumber mixture."],
-           servings: 4,
-           cardColor: "Color2"
+           servings: 4
           )
     
 //    var recipe = Recipe(name:"testN", ingredients: ["2 eggs", "kimchi"]

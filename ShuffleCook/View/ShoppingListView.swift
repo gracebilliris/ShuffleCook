@@ -181,8 +181,7 @@ struct ShoppingListView_Previews: PreviewProvider {
                                     Ingredient(quantity: 100, unitType: "Pcs", name: "Cheese", index: 2),
                                  ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
-                                 servings: 4,
-                                 cardColor: "Color4"
+                                 servings: 4
                                 ),
                           Recipe(id: 2, name: "Shepherds Pie",
                                  ingredients: [
@@ -190,8 +189,7 @@ struct ShoppingListView_Previews: PreviewProvider {
                                     Ingredient(quantity: 40.56, unitType: "Kg", name: "Cherry Tomatoes", index: 1),
                                  ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
-                                 servings: 4,
-                                 cardColor: "Color3"
+                                 servings: 4
                                 ),
                           Recipe(id: 1,
                                  name: "Cheese Sandwich",
@@ -200,8 +198,7 @@ struct ShoppingListView_Previews: PreviewProvider {
                                     Ingredient(quantity: 100, unitType: "g", name: "Cheese", index: 1),
                                 ],
                                  totalTime: 10, instructions: ["1.", "2.", "3."],
-                                 servings: 4,
-                                 cardColor: "Color1"
+                                 servings: 4
                                 )])
     }
 }
