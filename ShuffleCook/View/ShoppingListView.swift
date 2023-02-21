@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-private var items: [ListItem] = [ListItem]()
+private var items: [ListItem] = []
 
 struct ShoppingListView: View {
     @State var text = ""
@@ -78,10 +78,16 @@ struct ShoppingListView: View {
                     ForEach(items, id: \.self) { item in
                         GridRow {
                             Button(){
-                                if let row = items.firstIndex(where: {$0.self == item.self}) {
-                                    items[row].collected = !items[row].collected
-                                    print("Button pressed on row: " + String(row) + "\nCollected: " + String(items[row].collected) + ",\tname: " + String(items[row].name))
+                                var indices: [Int] = []
+                                if let row = items.firstIndex(where: {$0.name == item.name}) {
+//                                    items[row].collected = !items[row].collected
+//                                    items[row].name = "bazooka"
+                                    indices.append(row)
+//                                    print("Button pressed on row: " + String(row) + "\nCollected: " + String(items[row].collected) + ",\tname: " + String(items[row].name))
                                 }
+                                // debug, print out all selected items in items array
+//                                printAllCollected()
+                                applyCollected(indices: indices)
                             } label: {
                                 Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
                                 let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
@@ -98,6 +104,7 @@ struct ShoppingListView: View {
                         Divider()
                             .ignoresSafeArea()
                     }
+                    let _: () = printAllCollected()
                 }
                 .padding(.top)
             }
@@ -140,6 +147,20 @@ struct ShoppingListView: View {
                     items.append(ListItem(collected: false, unitType: model.globalSelectedRecipes[recit].ingredients[ingr].unitType, quantity: model.globalSelectedRecipes[recit].ingredients[ingr].quantity, name: model.globalSelectedRecipes[recit].ingredients[ingr].name, recipeId: String(model.globalSelectedRecipes[recit].id)))
                 }
             }
+        }
+    }
+    
+    private func printAllCollected(){
+        for i in 0..<items.count{
+            if items[i].collected{
+                print(items[i].name + " is collected")
+            }
+        }
+    }
+    
+    private func applyCollected(indices: [Int]){
+        for i in 0..<indices.count{
+            items[indices[i]].collected = !items[indices[i]].collected
         }
     }
 }
