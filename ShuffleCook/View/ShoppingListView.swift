@@ -49,12 +49,12 @@ struct ShoppingListView: View {
                                         .imageScale(Image.Scale.large)
                                         .shadow(radius: 2)
                                 }
-                                .offset(x: 80, y:-100)
+                                .offset(x: 82, y:-110)
                             }
                         }
                     }
                 }.padding()
-                .frame(height: 230)
+                .frame(height: 240)
                 Spacer()
             }
             .frame(height: 220.0)
@@ -63,10 +63,18 @@ struct ShoppingListView: View {
                 Grid() {
                     GridRow  {
                         Image(systemName: "square").gridColumnAlignment(.center)
-                        Text("Quantity").gridColumnAlignment(.leading)
+                            .padding(.leading, 20)
+                            .frame(maxWidth: 60)
+                        Text("Qty").gridColumnAlignment(.leading)
                         Text("Unit").gridColumnAlignment(.leading)
                         Text("Product").gridColumnAlignment(.leading)
                     }
+                    .fontWeight(.bold)
+                    .padding(.bottom, 5)
+                    .offset(x: -20)
+                    Divider()
+                        .ignoresSafeArea()
+    
                     ForEach(items, id: \.self) { item in
                         GridRow {
                             Button(){
@@ -78,11 +86,17 @@ struct ShoppingListView: View {
                                 Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
                                 let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
                             }
-                            Text((item.unitType == "Pcs") ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
+                            .foregroundColor(Color.black)
+                            .padding(.leading, 20)
+
+                            Text((item.unitType == "Kg") ? String(format:"%.2f", item.quantity) : String(format:"%.0f", item.quantity))
                                 .gridColumnAlignment(.leading)
                             Text(item.unitType.description).gridColumnAlignment(.leading)
                             Text(item.name).gridColumnAlignment(.leading)
                         }
+                        .offset(x: -20)
+                        Divider()
+                            .ignoresSafeArea()
                     }
                 }
                 .padding(.top)
