@@ -18,7 +18,6 @@ struct ShoppingListView: View {
     //@State var selectedRecipe:[Recipe]
     @State var text = ""
     @State var editMode = false
-//    @ObservedObject var observer = Observer()
 //    @State var items: [ListItem] = []
     @EnvironmentObject var model: Model
     var body: some View {
@@ -35,15 +34,6 @@ struct ShoppingListView: View {
                 editAction()
             }.offset(x: 320, y: -30)
             
-//            Divider()
-//                .frame(minWidth: 100)
-//                .frame(height: 1)
-//                .overlay(.gray.opacity(0))
-
-//            SearchBar(text: $text)
-//                .padding(.leading, 20)
-//                .padding(.trailing, 20)
-            
             Divider()
                 .frame(minWidth: 100)
                 .frame(height: 1)
@@ -56,7 +46,6 @@ struct ShoppingListView: View {
                         ZStack{
                             
                             RecipeView(recipe: rec)
-//                            let _ = print("Rendering selected recipe: " + rec.name)
                             if (editMode){
                                 Button(role: .destructive){
                                     print("Removing recipe from list:")
@@ -67,18 +56,14 @@ struct ShoppingListView: View {
                                 } label: {
                                     Image(systemName: "xmark.app.fill")
                                         .imageScale(Image.Scale.large)
-                                       // .offset(x: 80, y:-100)
-//                                        .position(x: 190, y:75)
                                         .shadow(radius: 2)
                                 }
                                 .offset(x: 80, y:-100)
-                                //.onTapGesture(perform: <#T##() -> Void#>)
                             }
                         }
                     }
                 }.padding()
                 .frame(height: 230)
-                //Divider()
                 Spacer()
             }
             .frame(height: 220.0)
@@ -97,7 +82,18 @@ struct ShoppingListView: View {
 //                    let _: () = assembleShoppingList()
                     ForEach(items, id: \.self) { item in
                         GridRow {
-                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                            Button(){
+                                //item.changeCollected()
+                                if let row = items.firstIndex(where: {$0.self == item.self}) {
+//                                    items[row].changeCollected()
+                                    items[row].collected = !items[row].collected
+                                    print("Button pressed on row: " + String(row) + "\nCollected: " + String(items[row].collected) + ",\tname: " + String(items[row].name))
+                                }
+                            } label: {
+                                Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                                let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
+                            }
+//                            Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
     //                        Text(String(format:"%.2f", item.quantity))
                             Text((item.unitType == "Pcs") ? String(format:"%.0f", item.quantity) : String(format:"%.2f", item.quantity))
                                 .gridColumnAlignment(.leading)
