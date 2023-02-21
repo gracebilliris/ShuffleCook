@@ -54,22 +54,21 @@ struct CompleteRecipeView: View {
 ////                         Ingredient(quantity: 1, unitType: UnitType.cup, name: "kimchi", desc: "cut into matchsticks", index: 6),
 ////                         Ingredient(quantity: 450, unitType: UnitType.g, name: "Microwavable Jasmine Rice", index: 7),
 ////                         Ingredient(quantity: 2, unitType: UnitType.Pcs, name: "Eggs", desc: "Lightly whisked", index: 8)],
-//                                ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Lebanese Cucumber", desc: "cut into matchsticks", index: 0),
-//                                Ingredient(quantity: 1, unitType: "Pcs", name: "Carrot", desc: "cut into matchsticks", index: 1),
-//                         Ingredient(quantity: 1, unitType: "Pcs", name: "Lime", desc: "juiced", index: 2),
-//                         Ingredient(quantity: 2, unitType: "Pcs", name: "Corn cob", desc: "Use a knife to cut down the side of corn to release the kernels", index: 3),
-//                         Ingredient(quantity: 2, unitType: "tbs", name: "Peanut oil", desc: "cut into matchsticks", index: 4),
-//                         Ingredient(quantity: 20, unitType: "Pcs", name: "Banana Prawns", desc: "pealed, leaving tails intact", index: 5),
-//                         Ingredient(quantity: 1, unitType: "cup", name: "kimchi", desc: "cut into matchsticks", index: 6),
-//                         Ingredient(quantity: 450, unitType: "g", name: "Microwavable Jasmine Rice", index: 7),
-//                         Ingredient(quantity: 2, unitType: "Pcs", name: "Eggs", desc: "Lightly whisked", index: 8)],
-//                                totalTime: 15, instructions: ["1. Combine the cucumber, carrot and lime juice in a bowl. Season.",
-//                                                              "2. Heat half the peanut oil in a wok or large non-stick frying pan over medium heat. Add the prawns and corn kernels and stir-fry for 3 mins or until prawns curl and change colour. Add the kimchi and stir-fry for 1 min or until heated through. Transfer the prawn mixture to a large bowl.",
-//                                                              "3.Heat remaining oil in the wok or pan over high heat. Add the rice and stir-fry for 3 mins or until heated through. Add the kimchi liquid and stir-fry for 1 min or until liquid evaporates. Use a spatula to move rice to the edge of the wok or pan. Pour egg into centre of wok or pan and cook until just set. Break up egg and stir to combine with rice mixture. Return the prawn mixture to wok or pan and mix until well combined and heated through.",
-//                                                              "4. Divide rice mixture among serving bowls. Top with cucumber mixture."],
-//           servings: 4,
-//           cardColor: "Color2"
-//          )
+                                ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Lebanese Cucumber", desc: "cut into matchsticks", index: 0),
+                                Ingredient(quantity: 1, unitType: "Pcs", name: "Carrot", desc: "cut into matchsticks", index: 1),
+                         Ingredient(quantity: 1, unitType: "Pcs", name: "Lime", desc: "juiced", index: 2),
+                         Ingredient(quantity: 2, unitType: "Pcs", name: "Corn cob", desc: "Use a knife to cut down the side of corn to release the kernels", index: 3),
+                         Ingredient(quantity: 2, unitType: "tbs", name: "Peanut oil", desc: "cut into matchsticks", index: 4),
+                         Ingredient(quantity: 20, unitType: "Pcs", name: "Banana Prawns", desc: "pealed, leaving tails intact", index: 5),
+                         Ingredient(quantity: 1, unitType: "cup", name: "kimchi", desc: "cut into matchsticks", index: 6),
+                         Ingredient(quantity: 450, unitType: "g", name: "Microwavable Jasmine Rice", index: 7),
+                         Ingredient(quantity: 2, unitType: "Pcs", name: "Eggs", desc: "Lightly whisked", index: 8)],
+                                totalTime: 15, instructions: ["1. Combine the cucumber, carrot and lime juice in a bowl. Season.",
+                                                              "2. Heat half the peanut oil in a wok or large non-stick frying pan over medium heat. Add the prawns and corn kernels and stir-fry for 3 mins or until prawns curl and change colour. Add the kimchi and stir-fry for 1 min or until heated through. Transfer the prawn mixture to a large bowl.",
+                                                              "3.Heat remaining oil in the wok or pan over high heat. Add the rice and stir-fry for 3 mins or until heated through. Add the kimchi liquid and stir-fry for 1 min or until liquid evaporates. Use a spatula to move rice to the edge of the wok or pan. Pour egg into centre of wok or pan and cook until just set. Break up egg and stir to combine with rice mixture. Return the prawn mixture to wok or pan and mix until well combined and heated through.",
+                                                              "4. Divide rice mixture among serving bowls. Top with cucumber mixture."],
+           servings: 4
+          )
     
 //    var recipe = Recipe(name:"testN", ingredients: ["2 eggs", "kimchi"]
 //    , instructions: ["1. 2. "], )
@@ -168,36 +167,44 @@ struct CompleteRecipeView: View {
                                 Divider()
                                 //padding here?
                             }
-                        }.padding(.leading, 10)
-                        
-                        Spacer()
-                        
-                        Text("Instructions")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.leading)
-                            .position(x:60,y:10)
-                            .padding(.leading, 10)
-                        
-                        Spacer()
 
-                       
+                            .frame(width: 150.0, height: 250.0)
+                        }
                         
-                        Text(recipe.instructions.joined(separator: "\n\n")).multilineTextAlignment(.leading).padding(.leading)
+                        Spacer()
+                        
+                        VStack(){
+                            Text("Ingredients:")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.leading)
+                                .position(x:60,y:10)
+                                
+                            
+                            
+                            //ingredients
+//                            Text(recipe.ingredients.joined(separator: "\n \u{2022}"))
+//                                .padding()
+                                
+                                
+                            
+                            
+                            Text(recipe.instructions.joined(separator: "\n "))
+                                .multilineTextAlignment(.leading)
+                            
+                        }
 
                         
                         //for each)
-                        
-                        
-                        
-                        
+
                     }
                     .padding()
-                    
                 }
                 //scroll view closer below me
             }
         }
         
     }
+//View closed
+    
 }

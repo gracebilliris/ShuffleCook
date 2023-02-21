@@ -17,5 +17,4 @@ struct Recipe: Identifiable, Decodable {
     var totalTime: Int
     var instructions: Array<String>
     var servings: Int
-    var cardColor: String
 }
