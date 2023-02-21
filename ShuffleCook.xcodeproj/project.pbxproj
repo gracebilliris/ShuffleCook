@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1560D3C8299F0FA600820D35 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1560D3C7299F0FA600820D35 /* Ingredient.swift */; };
 		15E6F4D4299C4B2D00E2EB8E /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */; };
 		15E6F4D6299C6CC700E2EB8E /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6F4D5299C6CC700E2EB8E /* RecipeView.swift */; };
 		377284A8299DCAE70066B219 /* CompleteRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377284A7299DCAE70066B219 /* CompleteRecipeView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1560D3C7299F0FA600820D35 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		15E6F4D5299C6CC700E2EB8E /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		377284A7299DCAE70066B219 /* CompleteRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRecipeView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				563926DA299AF65B00959904 /* Recipe.swift */,
+				1560D3C7299F0FA600820D35 /* Ingredient.swift */,
 				15E6F4D3299C4B2D00E2EB8E /* ListItem.swift */,
 			);
 			path = Model;
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565085AE299E593A00DD4B04 /* ShuffleViewNavTest.swift in Sources */,
+				1560D3C8299F0FA600820D35 /* Ingredient.swift in Sources */,
 				15E6F4D6299C6CC700E2EB8E /* RecipeView.swift in Sources */,
 				563926DF299AFF2C00959904 /* MainView.swift in Sources */,
 				56A8C463299E1232005A35AD /* ModelData.swift in Sources */,

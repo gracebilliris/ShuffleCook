@@ -84,14 +84,12 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView(recipe: Recipe(id: 3,
-                                  name: "Margherita Pizza",
-                          ingredients: ["Tomato", "Dough"],
-                          totalTime: 15, // use Int as in CompleteRecipeView uses String(recipe.totalTime)
-                          instructions: ["1.", "2.", "3."],
-//                          totalTime: "10",        // argument must precede "instructions"
-                                  servings: 1,
-                          cardColor: "Color4"
+        RecipeView(recipe: Recipe(id: 2,
+                                  name: "Noodles",
+                          ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Noodles", index: 0),
+                                        Ingredient(quantity: 1, unitType: "Pcs", name: "Capsicum", index: 1)],
+                                  totalTime: 10, instructions: ["1.", "2.", "3."],
+                                  servings: 1
                          ))
     }
 }

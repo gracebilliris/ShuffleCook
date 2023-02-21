@@ -1,56 +1,556 @@
 [
     {
         "id": 1,
-        "name": "Pear",
-        "servings": 1,
-        "ingredients": ["Pear"],
-        "totalTime": 1,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color1"
+        "name": "Kalistounia",
+        "ingredients": [
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Eggplant",
+                "index": 1
+            }
+        ],
+        "totalTime": 35,
+        "instructions": [
+            "1. Preheat the oven to 180°C, fan-forced."
+        ],
+        "servings": 30
     },
     {
         "id": 2,
-        "name": "Noodles",
-        "servings": 1,
-        "ingredients": ["Noodles", "Capsicums"],
-        "totalTime": 25,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color2"
+        "name": "Breakfast Bowl",
+        "ingredients": [
+            {
+                "unitType": "grams",
+                "quantity": 100,
+                "name": "Mushrooms",
+                "desc": "button",
+                "index": 1
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Tomatoes",
+                "desc": "thinly sliced",
+                "index": 2
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Eggs",
+                "index": 3
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Capsicum",
+                "desc": "diced",
+                "index": 4
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 4,
+                "name": "Olive Oil",
+                "index": 5
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 0.25,
+                "name": "Onions",
+                "desc": "chopped",
+                "index": 6
+            }
+        ],
+        "totalTime": 15,
+        "instructions": [
+            "1. Heat a pain with the oil.",
+            "2. When oil is hot, sauté the onions, and mushrooms.",
+            "3. When vegetables have softened, about 5 minutes, stir in capsicums and tomatoes.",
+            "4. Keep aside all the vegetables and drop two eggs on the pan and cook until desired doneness, 8-10 minutes for slightly undercooked eggs.",
+            "5. Season eggs with salt and pepper. Open up two small circles in the vegetables and place the cooked eggs."
+        ],
+        "servings": 8
     },
     {
         "id": 3,
-        "servings": 1,
-        "name": "Margherita Pizza",
-        "ingredients": ["Tomato", "Dough"],
-        "totalTime": 15,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color4"
+        "name": "Tomato, Spinach and Sausage Pasta",
+        "ingredients": [
+            {
+                "unitType": "grams",
+                "quantity": 500,
+                "name": "Penne Pasta",
+                "index": 1
+            },
+            {
+                "unitType": "grams",
+                "quantity": 200,
+                "name": "Cherry Tomatoes",
+                "index": 2
+            },
+            {
+                "unitType": "grams",
+                "quantity": 500,
+                "name": "Baby Spinach",
+                "desc": "washed",
+                "index": 3
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 0.5,
+                "name": "Onion",
+                "desc": "chopped",
+                "index": 4
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 2,
+                "name": "Olive Oil",
+                "index": 5
+            },
+            {
+                "unitType": "grams",
+                "quantity": 100,
+                "name": "Mozzarella Cheese",
+                "index": 6
+            },
+            {
+                "unitType": "cups",
+                "quantity": 2,
+                "name": "Water",
+                "index": 7
+            },
+            {
+                "unitType": "can",
+                "quantity": 1,
+                "name": "Diced Tomatoes",
+                "index": 8
+            },
+            {
+                "unitType": "grams",
+                "quantity": 100,
+                "name": "Pasta Sauce",
+                "index": 9
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Sausages",
+                "decs": "(any choice of meat)",
+                "index": 10
+            }
+        ],
+        "totalTime": 25,
+        "instructions": [
+            "1. Fill a pot with water, and leave it to boil. Once boiled, add the pasta and leave it to boil again.",
+            "2. With another pot, add the olive oil and leave to heat up. Once heated, add the onion and sausages. Leave for 1 minute and then add the tomatoes and spinach with the water. Leave lid on the pot until the water boils, stirring occasionally.",
+            "3. Once boiled, add the diced tomatoes and pasta sauce. Stir thoroughly.",
+            "4. Once the pasta is fully cooked, strain the water and rinse with cold water. Then add to the other pot.",
+            "5. Add the mozzarella to the pot, stirring all the ingredients together. Season to taste."
+        ],
+        "servings": 4
     },
     {
         "id": 4,
-        "servings": 1,
-        "name": "Shepherds Pie",
-        "ingredients": ["Beef", "Potato"],
-        "totalTime": 10,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color3"
+        "name": "Meatball and Garlic Bread Traybake",
+        "ingredients": [
+            {
+                "unitType": "Loaf",
+                "quantity": 1,
+                "name": "Turkish Bread",
+                "index": 1
+            },
+            {
+                "unitType": "grams",
+                "quantity": 200,
+                "name": "Mozzarella Cheese",
+                "index": 2
+            },
+            {
+                "unitType": "grams",
+                "quantity": 50,
+                "name": "Garlic",
+                "desc": "granulated",
+                "index": 3
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 3.5,
+                "name": "Olive Oil",
+                "index": 4
+            },
+            {
+                "unitType": "grams",
+                "quantity": 50,
+                "name": "Butter",
+                "decs": "room temperature",
+                "index": 5
+            },
+            {
+                "unitType": "grams",
+                "quantity": 300,
+                "name": "Beef Mince",
+                "index": 6
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 1,
+                "name": "Dried Oregano",
+                "index": 7
+            },
+            {
+                "unitType": "tsp",
+                "quantity": 2,
+                "name": "Sugar",
+                "index": 8
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 3,
+                "name": "Garlic Cloves",
+                "desc": "minced",
+                "index": 9
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Onion",
+                "decs": "chopped",
+                "index": 10
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 1,
+                "name": "Pasta Sauce",
+                "index": 11
+            },
+            {
+                "unitType": "grams",
+                "quantity": 800,
+                "name": "Chopped Tomato",
+                "desc": "can",
+                "index": 11
+            }
+        ],
+        "totalTime": 30,
+        "instructions": [
+            "1. Line baking paper onto a tray. Cut the loaf of Turkish bread into two pieces and place onto the tray.",
+            "2. Preheat oven to 180°C, fan-forced.",
+            "3. Spread the butter evenly onto both pieces of Turkish bread. Then spread the garlic on the pieces, followed by the Mozzarella.",
+            "4. Drizzle some of the olive oil evenly across the Mozzarella.",
+            "5. Place tray into the oven for 20 minutes, or until golden-brown. Once cooked leave to cool.",
+            "6. Combine the mince, oregano and some seasoning in a bowl. Take walnut-sized pieces of the mixture and roll into balls. Heat half the oil in a large, shallow ovenproof pan and cook the meatballs until browned all over – don’t worry if they’re not cooked through. Transfer to a plate. Heat the oven to 180°C.",
+            "7. Heat the remaining oil in the pan and add the onion. Cook until softened, stirring regularly. Stir in the garlic for another minute, then the pasta sauce, chopped tomatoes and sugar.",
+            "8. Simmer for 10-15 mins, then season to taste. Place the meatballs on top of the sauce, then add the mozzarella, garlic bread on top. Bake for 15-20 mins until golden and crisp."
+        ],
+        "servings": 4
     },
     {
         "id": 5,
-        "servings": 1,
-        "name": "Cheese Sandwich",
-        "ingredients": ["Cheese", "Bread"],
-        "totalTime": 8,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color1"
+        "name": "Tomato, Spinach and Feta Linguine",
+        "ingredients": [
+            {
+                "unitType": "grams",
+                "quantity": 500,
+                "name": "Linguine Pasta",
+                "index": 1
+            },
+            {
+                "unitType": "grams",
+                "quantity": 100,
+                "name": "Mozzarella Cheese",
+                "index": 2
+            },
+            {
+                "unitType": "block",
+                "quantity": 1,
+                "name": "Feta",
+                "index": 3
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 2,
+                "name": "Olive Oil",
+                "index": 4
+            },
+            {
+                "unitType": "grams",
+                "quantity": 200,
+                "name": "Cherry Tomatoes",
+                "index": 5
+            },
+            {
+                "unitType": "tsp",
+                "quantity": 2,
+                "name": "Sugar",
+                "index": 6
+            },
+            {
+                "unitType": "grams",
+                "quantity": 300,
+                "name": "Baby Spinach",
+                "desc": "washed",
+                "index": 7
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Garlic Cloves",
+                "desc": "minced",
+                "index": 8
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 0.5,
+                "name": "Onion",
+                "decs": "chopped",
+                "index": 9
+            },
+            {
+                "unitType": "grams",
+                "quantity": 100,
+                "name": "Pasta Sauce",
+                "index": 10
+            },
+            {
+                "unitType": "grams",
+                "quantity": 200,
+                "name": "Diced Tomato",
+                "desc": "can",
+                "index": 11
+            },
+            {
+                "unitType": "cups",
+                "quantity": 2,
+                "name": "Water",
+                "index": 12
+            }
+        ],
+        "totalTime": 25,
+        "instructions": [
+            "1. Fill a pot with water, and leave it to boil. Once boiled, add the pasta and leave it to boil again.",
+            "2. With another pot, add the olive oil and leave to heat up. Once heated, add the onion and garlic. Leave for 1 minute and then add the tomatoes and spinach with the water. Leave lid on the pot until the water boils, stirring occasionally.",
+            "3. Once boiled, add the diced tomatoes and pasta sauce. Stir thoroughly.",
+            "4. Once the pasta is fully cooked, strain the water and rinse with cold water. Then add to the other pot.",
+            "5. Add the mozzarella to the pot, stirring all the ingredients together. Season to taste."
+        ],
+        "servings": 4
     },
     {
         "id": 6,
-        "name": "Omelette",
-        "servings": 1,
-        "ingredients": ["Eggs", "Onions"],
-        "totalTime": 10,
-        "instructions": ["1.", "2.", "3."],
-        "cardColor": "Color2"
+        "name": "Garlic Bread",
+        "ingredients": [
+            {
+                "unitType": "Loaf",
+                "quantity": 1,
+                "name": "Turkish Bread",
+                "index": 1
+            },
+            {
+                "unitType": "grams",
+                "quantity": 200,
+                "name": "Mozzarella Cheese",
+                "index": 2
+            },
+            {
+                "unitType": "grams",
+                "quantity": 50,
+                "name": "Garlic",
+                "desc": "granulated",
+                "index": 3
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 3.5,
+                "name": "Olive Oil",
+                "index": 4
+            },
+            {
+                "unitType": "grams",
+                "quantity": 50,
+                "name": "Butter",
+                "decs": "room temperature",
+                "index": 5
+            }
+        ],
+        "totalTime": 25,
+        "instructions": [
+            "1. Line baking paper onto a tray. Cut the loaf of Turkish bread into two pieces and place onto the tray.",
+            "2. Preheat oven to 180°C, fan-forced.",
+            "3. Spread the butter evenly onto both pieces of Turkish bread. Then spread the garlic on the pieces, followed by the Mozzarella.",
+            "4. Drizzle the olive oil evenly across the Mozzarella.",
+            "5. Place tray into the oven for 20 minutes, or until golden-brown."
+        ],
+        "servings": 10
+    },
+    {
+        "id": 7,
+        "name": "Ratatouille",
+        "ingredients": [
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Eggplant",
+                "index": 1
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 3,
+                "name": "Tomatoes",
+                "index": 2
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Yellow Squash",
+                "index": 3
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Zucchini",
+                "index": 4
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 6,
+                "name": "Olive Oil",
+                "index": 5
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Onion",
+                "desc": "diced",
+                "index": 6
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 5,
+                "name": "Garlic Cloves",
+                "desc": "minced",
+                "index": 7
+            },
+            {
+                "unitType": "Can",
+                "quantity": 800,
+                "name": "Crushed Tomatoes",
+                "index": 8
+            },
+            {
+                "unitType": "Leaves",
+                "quantity": 20,
+                "name": "Fresh Basil",
+                "index": 9
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 2,
+                "name": "Thyme",
+                "desc": "chopped",
+                "index": 10
+            }
+        ],
+        "totalTime": 35,
+        "instructions": [
+            "1. Preheat the oven to 180°C, fan-forced.",
+            "2. Slice the eggplant, tomatoes, squash and zucchini into 2mm thick slices.",
+            "3. Heat half the olive oil into a 30-cm wide oven safe pan. Add the onion and 3/4 of the garlic, stir occasionally. Season with salt and pepper, then add the crushed tomatoes. Stir all the ingredients together. Remove from heat, then add half the basil.",
+            "4. Arrange the sliced veggies in alternating patterns, (for example, eggplant, tomato, squash, zucchini) on top of the sauce from the outer edge to the middle of the pan. Season with salt and pepper.",
+            "5. In a small bowl, mix together the remaining basil, remaining garlic, parsley, thyme, salt, pepper, and olive oil. Spoon the herb seasoning over the vegetables.",
+            "6. Cover the pan with foil and bake for 40 minutes. Uncover, then bake for another 20 minutes, until the vegetables are softened."
+        ],
+        "servings": 8
+    },
+    {
+        "id": 8,
+        "name": "Pavlova",
+        "ingredients": [
+            {
+                "unitType": "Pcs",
+                "quantity": 6,
+                "name": "Eggs",
+                "index": 1
+            },
+            {
+                "unitType": "grams",
+                "quantity": 270,
+                "name": "Caster Sugar",
+                "index": 2
+            },
+            {
+                "unitType": "tsp",
+                "quantity": 2,
+                "name": "Cornflour",
+                "index": 3
+            },
+            {
+                "unitType": "tsp",
+                "quantity": 1,
+                "name": "White Vingear",
+                "index": 4
+            },
+            {
+                "unitType": "tsp",
+                "quantity": 0.5,
+                "name": "Vanilla Extract",
+                "index": 5
+            },
+            {
+                "unitType": "mL",
+                "quantity": 300,
+                "name": "Thickend Cream",
+                "index": 6
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 2,
+                "name": "Pure Icing Sugar",
+                "desc": "sifted",
+                "index": 7
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Limes",
+                "decs": "juiced",
+                "index": 8
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Limes",
+                "desc": "shredded rind",
+                "index": 9
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Bananas",
+                "desc": "thinly sliced",
+                "index": 10
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Starfruit",
+                "desc": "thinly sliced",
+                "index": 11
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 2,
+                "name": "Passionfruit",
+                "desc": "pulped",
+                "index": 12
+            }
+        ],
+        "totalTime": 120,
+        "instructions": [
+            "1. Pre-heat oven to a temperature of 120°C. Grease a thin layer of melted butter along with dusting cornflour on the oven tray with foil. Make a circle with 24 cm on the foil.",
+            "2. Whist all 6 egg whites with a mixture until soft peaks forms. Adding sugar gradually, mix it until meringue appears thick as well as glossy. Later just like sugar gradually whisk and add cornflour, vinegar and vanilla. Place meringue on marked circle. Use a small spatula to forms little peaks around edge of pavlova. Bake it for 1.5 hrs until pavlova looks dry. Turn off oven and as soon as pavlova cools transfer to a serving plate.",
+            "3. Now it’s the turn for icing, with a mixer whisk cream and icing until firm peaks form. Cream it on the top of pavlova. Coat banana slices with lime juice in glass bowl.",
+            "4. Decorate pavlova with banana, kiwifruit, starfruit, passionfruit and lime rind."
+        ],
+        "servings": 8
     }
 ]
