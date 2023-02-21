@@ -15,7 +15,7 @@ struct ShuffleView: View {
     
     @EnvironmentObject var model: Model
     
-    @State private var recipe = Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4);
+    @State private var recipe = recipes.randomElement() ?? Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4);
 
     var body: some View {
         NavigationView {
@@ -58,7 +58,7 @@ struct ShuffleView: View {
                         .bold()
                         .padding()
                     
-                    NavigationLink(destination: RecipeView(recipe: recipe)){
+                    NavigationLink(destination: CompleteRecipeView(recipe: recipe)){
                         VStack (alignment: .center) {
                             Text("Ingredients")
                                 .font(.subheadline)
