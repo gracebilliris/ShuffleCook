@@ -8,15 +8,15 @@
 import SwiftUI
 import Foundation
 
-func randomise() -> Recipe {
-    return recipes.randomElement() ?? Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4);
-}
-
 struct ShuffleView: View {
-    @State private var recipe: Recipe = randomise();
-    
     @State private var newShuffleRecipe: Bool = false
     
+    var defaultRecipe = Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4);
+    
+    @EnvironmentObject var model: Model
+    
+    @State private var recipe = Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4);
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,26 +31,21 @@ struct ShuffleView: View {
                         Spacer()
                         
                         Button {
-                            recipe = randomise()
+                            recipe = model.recipes.randomElement() ?? defaultRecipe
                         } label: {
                             Image(systemName: "arrow.clockwise")
                                 .imageScale(.large)
                                 .foregroundColor(.blue)
                                 .padding(.trailing)
                                 .onTapGesture (count: 1) {
-                                    recipe = randomise()
-//                                    if !newShuffleRecipe {
-//                                        newShuffleRecipe = true
-//                                        recipe = randomise()
-//                                    }
+                                    recipe = model.recipes.randomElement() ?? defaultRecipe
                                 }
                         }
                     } .padding(.vertical)
                     
                     Divider()
-//                        .padding()
                     Spacer()
-                } 
+                }
                 VStack(alignment: .center) {
                     Image(recipe.name)
                         .resizable()
@@ -78,12 +73,13 @@ struct ShuffleView: View {
                     .padding(.top)
                 }
             }
-        } //.onDisappear {newShuffleRecipe = false}
+        }
     }
 }
 
 struct ShuffleView_Previews: PreviewProvider {
     static var previews: some View {
-        ShuffleView()
+        ShuffleView(defaultRecipe: Recipe(id: 1, name: "Cheese Sandwich",ingredients: [Ingredient(quantity: 1, unitType: "Pcs", name: "Beef", index: 1)], totalTime: 10,instructions: ["1.", "2.", "3."], servings: 4)
+        )
     }
 }

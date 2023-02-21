@@ -37,8 +37,8 @@ struct BrowseRecipeView: View {
                             ForEach(model.recipes.filter({ "\($0)".contains(text) || text.isEmpty})){
                                 recipe in
                                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)){
-                                    NavigationLink(destination: RecipeView(recipe: recipe)){
-                                      RecipeView(recipe: recipe)
+                                    NavigationLink(destination: CompleteRecipeView(recipe: recipe)){
+                                        RecipeView(recipe: recipe)
                                     }
                                 }
                             }
