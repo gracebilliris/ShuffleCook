@@ -40,18 +40,6 @@ struct CompleteRecipeView: View {
     var body: some View {
         VStack{
             //page Title, add to list Hstack
-            HStack(alignment: .center, spacing: 150){
-                Text("Recipe")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .frame(width: 115.0)
-                    .multilineTextAlignment(.leading)
-                    .padding(.bottom)
-                Button("+ Add to list") {
-                    model.globalSelectedRecipes.append(recipe)
-                }.padding(.bottom)
-                .frame(width: 100.0)
-            }.padding(1.0)
             
             Divider()
             
@@ -140,6 +128,15 @@ struct CompleteRecipeView: View {
                             
                         }
                     }
+                    .navigationBarTitle("Recipe")
+                    .navigationBarItems(trailing:
+                        Button(action: {
+                            // Handle button press
+                            model.globalSelectedRecipes.append(recipe)
+                        }) {
+                            Text("Add to List")
+                        }
+                    )
                     .padding()
                 }
             }
