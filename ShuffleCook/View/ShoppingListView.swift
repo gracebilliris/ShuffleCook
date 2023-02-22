@@ -62,7 +62,7 @@ struct ShoppingListView: View {
             ScrollView(.vertical) {
                 Grid() {
                     GridRow  {
-                        Image(systemName: "square").gridColumnAlignment(.center)
+                        Image(systemName: "checkmark.circle.fill").gridColumnAlignment(.center)
                             .padding(.leading, 20)
                             .frame(maxWidth: 60)
                         Text("Qty").gridColumnAlignment(.leading)
@@ -89,7 +89,7 @@ struct ShoppingListView: View {
 //                                printAllCollected()
                                 applyCollected(indices: indices)
                             } label: {
-                                Image(systemName: item.collected ? "checkmark.square.fill" : "square").gridColumnAlignment(.center)
+                                Image(systemName: item.collected ? "checkmark.circle.fill" : "circle").gridColumnAlignment(.center)
                                 let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
                             }
                             .foregroundColor(Color.black)
