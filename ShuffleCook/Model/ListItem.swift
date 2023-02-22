@@ -27,13 +27,14 @@ import Foundation
 //      }
 //}
 
-struct ListItem: Hashable {
+struct ListItem: Hashable, Identifiable {
     var collected : Bool
 //    var unitType : UnitType
     var unitType: String
     var quantity : Float
     var name : String
     var recipeId : String
+    var id: Int
     
     mutating func changeCollected() -> () {
         self.collected = !self.collected

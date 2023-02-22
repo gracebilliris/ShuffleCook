@@ -12,6 +12,7 @@ import Foundation
 struct MainView: View {
     
     @State var name: String = ""
+    @EnvironmentObject var model: Model
 //    @State public var selectedRecipes: [Recipe] = []
 
     var body: some View {
@@ -26,7 +27,7 @@ struct MainView: View {
                     Label("Shuffle", systemImage: "shuffle")
                 }
             
-            ShoppingListView()//selectedRecipe: selectedRecipes
+            ShoppingListView(items: $model.items)//selectedRecipe: selectedRecipes
                 .tabItem {
                     Label("Shopping", systemImage: "list.dash")
                 }

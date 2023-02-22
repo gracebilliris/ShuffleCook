@@ -49,6 +49,7 @@ struct CompleteRecipeView: View {
                     .padding(.bottom)
                 Button("+ Add to list") {
                     model.globalSelectedRecipes.append(recipe)
+//                    model.assembleShoppingList()
                 }.padding(.bottom)
                 .frame(width: 100.0)
             }.padding(1.0)
