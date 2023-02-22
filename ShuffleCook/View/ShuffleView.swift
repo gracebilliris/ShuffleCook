@@ -25,8 +25,8 @@ struct ShuffleView: View {
                         Text("Suggested Meal")
                             .font(.largeTitle)
                             .bold()
-                            .padding(.leading, 15)
-                            .frame(maxHeight: 50)
+//                            .padding(.leading, 15)
+//                            .frame(maxHeight: 50)
 
                         Spacer()
                         
@@ -41,7 +41,8 @@ struct ShuffleView: View {
                                     recipe = model.recipes.randomElement() ?? defaultRecipe
                                 }
                         }
-                    } .padding(.vertical)
+                    } .padding(.horizontal)
+                        .padding(.vertical)
                     
                     Divider()
                     Spacer()
