@@ -55,7 +55,7 @@ struct CompleteRecipeView: View {
                             Text(recipe.name)
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
+                                .multilineTextAlignment(.center)
                                 .padding()
                             
                             //name, total time and recipe image Hstack
@@ -107,8 +107,14 @@ struct CompleteRecipeView: View {
                                         //                                  if else for comma inclusion down here
                                         
                                         //IF the thing doesnt work just use this
-                                        Text(ingr.name + ", " + (ingr.desc ?? " ")).multilineTextAlignment(.leading)
-                                        
+                                        if ingr.desc != nil {
+                                            Text(ingr.name + ", " + (ingr.desc ?? " "))
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                        else {
+                                            Text(ingr.name)
+                                                .multilineTextAlignment(.leading)
+                                        }
                                         
                                     }
                                     Divider()
@@ -120,7 +126,7 @@ struct CompleteRecipeView: View {
                             Spacer()
                             
                             VStack(){
-                                Text("Instructions:")
+                                Text("Instructions")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.leading)
@@ -129,7 +135,8 @@ struct CompleteRecipeView: View {
                                 
                                 Text(recipe.instructions.joined(separator: "\n "))
                                     .multilineTextAlignment(.leading)
-                                
+                                    .padding(.leading, 10)
+                                    .padding(.trailing, 10)
                                 
                             }
                         }
