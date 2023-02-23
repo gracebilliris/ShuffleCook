@@ -101,8 +101,7 @@ struct CompleteRecipeView: View {
                             Grid(alignment:.leading) {
                                 ForEach(recipe.ingredients, id: \.index) { ingr in
                                     GridRow(){
-                                        Text((ingr.unitType == "Pcs") ? String(format:"%.0f", ingr.quantity) :
-                                                String(format:"%.0f", ingr.quantity) + " " + ingr.unitType)
+                                        Text(ingr.getQuantityStr())
                                         
                                         //                                  if else for comma inclusion down here
                                         
