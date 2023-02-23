@@ -90,12 +90,13 @@ struct ShoppingListView: View {
                                 applyCollected(indices: indices)
                             } label: {
                                 Image(systemName: item.collected ? "checkmark.circle.fill" : "circle").gridColumnAlignment(.center)
-                                let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
+                                //let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
                             }
                             .foregroundColor(Color.black)
                             .padding(.leading, 20)
 
-                            Text((item.unitType == "Kg") ? String(format:"%.2f", item.quantity) : String(format:"%.0f", item.quantity))
+                            //Text((item.unitType == "Kg") ? String(format:"%.2f", item.quantity) : String(format:"%.0f", item.quantity))
+                            Text(item.getQuantityStr())
                                 .gridColumnAlignment(.leading)
                             Text(item.unitType.description).gridColumnAlignment(.leading)
                             Text(item.name).gridColumnAlignment(.leading)

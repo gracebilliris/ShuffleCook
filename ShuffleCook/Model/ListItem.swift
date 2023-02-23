@@ -38,4 +38,21 @@ struct ListItem: Hashable {
     mutating func changeCollected() -> () {
         self.collected = !self.collected
     }
+    
+    func getQuantityStr() -> String {
+        print(name + ": quantity " + String(quantity) + " truncate: " + String((quantity).truncatingRemainder(dividingBy: 10)) + ",\ntimes ten: " +  String((quantity*10).truncatingRemainder(dividingBy: 10)))
+        if ((quantity*10).truncatingRemainder(dividingBy: 10) != 0.0 || (quantity*100).truncatingRemainder(dividingBy: 10) != 0.0){
+            return String(format: "%.2f", quantity)
+        }
+        else{
+            return String(format: "%.0f", quantity)
+        }
+    }
+    
+//    func roundAmount() -> Bool {
+//        if (String(quantity * 10) == "0")
+//            return true;
+//        else
+//            return false;
+//    }
 }
