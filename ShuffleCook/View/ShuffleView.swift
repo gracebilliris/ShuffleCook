@@ -58,6 +58,7 @@ struct ShuffleView: View {
                         .font(.title)
                         .bold()
                         .padding()
+                        .multilineTextAlignment(.center)
                     
                     NavigationLink(destination: CompleteRecipeView(recipe: recipe)){
                         VStack (alignment: .center) {
