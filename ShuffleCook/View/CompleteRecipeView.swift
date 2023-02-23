@@ -35,112 +35,142 @@ import ImageIO
 import UIKit
 
 struct CompleteRecipeView: View {
+    
+    @State var showingAlert = false
+    
     @State var recipe: Recipe
     @EnvironmentObject var model: Model
     var body: some View {
-        VStack{
-            //page Title, add to list Hstack
+      
             
-            Divider()
-            
-            ScrollView{
-                VStack {
-                    //whole stack
-                    VStack(alignment: .center) {
-                        Text(recipe.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.leading)
-                            .padding()
-  
-                        //name, total time and recipe image Hstack
-                        HStack(alignment: .center){
-                            Image(recipe.name)
-                                .resizable()
-                                .frame(width: 200, height: 200)
-                                .cornerRadius(38)
+            VStack{
+                //page Title, add to list Hstack
+                
+                Divider()
+                
+                ScrollView{
+                    VStack {
+                        //whole stack
+                        VStack(alignment: .center) {
+                            Text(recipe.name)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
                                 .padding()
                             
-                            VStack(alignment: .leading){
+                            //name, total time and recipe image Hstack
+                            HStack(alignment: .center){
+                                Image(recipe.name)
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                                    .cornerRadius(38)
+                                    .padding()
                                 
-                                //total time VStack
-                                VStack{
-                                    Text("Total Time")
-                                        .font(.headline)
-                                        .multilineTextAlignment(.leading)
-                                    Text(String(recipe.totalTime) + " minutes \n").multilineTextAlignment(.leading)
+                                VStack(alignment: .leading){
                                     
-                                    Text("Servings").font(.headline).multilineTextAlignment(.leading)
-
-                                    Text(String(recipe.servings)).multilineTextAlignment(.leading)
-                                    
-                                }.padding(.leading)
-                            }
-                            .frame(width: 150.0, height: 200.0)
-                        }.frame(width: 375, height: 200)
-                        
-                        Spacer()
-                        
-                        Text("Ingredients")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.leading)
-                            .position(x:60,y:10)
-                            .padding(.leading, 10)
-                        
-                        Spacer()
-                        
-                        // New version of drawing the list of ingredients with new model.
-                        // Feel free to rearrange and stylise!
-                        
-                        Grid(alignment:.leading) {
-                            ForEach(recipe.ingredients, id: \.index) { ingr in
-                                GridRow(){
-                                    Text((ingr.unitType == "Pcs") ? String(format:"%.0f", ingr.quantity) :
-                                            String(format:"%.0f", ingr.quantity) + " " + ingr.unitType)
-                                    
-//                                  if else for comma inclusion down here
-
-                                    //IF the thing doesnt work just use this
-                                    Text(ingr.name + ", " + (ingr.desc ?? " ")).multilineTextAlignment(.leading)
+                                    //total time VStack
+                                    VStack{
+                                        Text("Total Time")
+                                            .font(.headline)
+                                            .multilineTextAlignment(.leading)
+                                        Text(String(recipe.totalTime) + " minutes \n").multilineTextAlignment(.leading)
                                         
-
+                                        Text("Servings").font(.headline).multilineTextAlignment(.leading)
+                                        
+                                        Text(String(recipe.servings)).multilineTextAlignment(.leading)
+                                        
+                                    }.padding(.leading)
                                 }
-                                Divider()
-                            }
-                        }
-                        
-                        .padding()
-                        
-                        Spacer()
-                        
-                        VStack(){
-                            Text("Instructions:")
+                                .frame(width: 150.0, height: 200.0)
+                            }.frame(width: 375, height: 200)
+                            
+                            Spacer()
+                            
+                            Text("Ingredients")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading)
                                 .position(x:60,y:10)
-                                .padding()
+                                .padding(.leading, 10)
                             
-                            Text(recipe.instructions.joined(separator: "\n "))
-                                .multilineTextAlignment(.leading)
+                            Spacer()
+                            
+                            // New version of drawing the list of ingredients with new model.
+                            // Feel free to rearrange and stylise!
+                            
+                            Grid(alignment:.leading) {
+                                ForEach(recipe.ingredients, id: \.index) { ingr in
+                                    GridRow(){
+                                        Text((ingr.unitType == "Pcs") ? String(format:"%.0f", ingr.quantity) :
+                                                String(format:"%.0f", ingr.quantity) + " " + ingr.unitType)
+                                        
+                                        //                                  if else for comma inclusion down here
+                                        
+                                        //IF the thing doesnt work just use this
+                                        if ingr.desc != nil {
+                                            Text(ingr.name + ", " + (ingr.desc ?? " "))
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                        else {
+                                            Text(ingr.name)
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                        
+                                    }
+                                    Divider()
+                                }
+                            }
+                            
+                            .padding()
+                            
+                            Spacer()
+                            
+                            VStack(){
+                                Text("Instructions")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.leading)
+                                    .position(x:60,y:10)
+                                    .padding()
                                 
-                            
+                                Text(recipe.instructions.joined(separator: "\n "))
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.leading, 10)
+                                    .padding(.trailing, 10)
+                                
+                            }
                         }
-                    }
-                    .navigationBarTitle("Recipe")
-                    .navigationBarItems(trailing:
-                        Button(action: {
+                        .navigationBarTitle("Recipe")
+                        .navigationBarItems(trailing:
+                                Button(action: {
+                                showingAlert = true
                             // Handle button press
-                            model.globalSelectedRecipes.append(recipe)
-                        }) {
+//                            self.alert(isPresented: $showingAlert) {
+//                                Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
+//                            }
+//                            Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
+                                model.globalSelectedRecipes.append(recipe)
+                            }){
                             Text("Add to List")
                         }
-                    )
-                    .padding()
+                            .alert("Recipe added to shopping list!", isPresented: $showingAlert){
+                                Button("OK", role: .cancel) {}
+                            }
+                        )
+                        .padding()
+                    }
                 }
+                
             }
-        }
+            
+
+            
+ 
+            
         
+
     }
 }
+
+
+
