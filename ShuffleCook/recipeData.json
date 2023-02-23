@@ -1,20 +1,82 @@
 [
     {
         "id": 1,
-        "name": "Kalistounia",
+        "name": "Ratatouille",
         "ingredients": [
             {
                 "unitType": "Pcs",
                 "quantity": 1,
                 "name": "Eggplant",
                 "index": 1
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 3,
+                "name": "Tomatoes",
+                "index": 2
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Yellow Squash",
+                "index": 3
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Zucchini",
+                "index": 4
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 6,
+                "name": "Olive Oil",
+                "index": 5
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 1,
+                "name": "Onion",
+                "desc": "diced",
+                "index": 6
+            },
+            {
+                "unitType": "Pcs",
+                "quantity": 5,
+                "name": "Garlic Cloves",
+                "desc": "minced",
+                "index": 7
+            },
+            {
+                "unitType": "Can",
+                "quantity": 800,
+                "name": "Crushed Tomatoes",
+                "index": 8
+            },
+            {
+                "unitType": "Leaves",
+                "quantity": 20,
+                "name": "Fresh Basil",
+                "index": 9
+            },
+            {
+                "unitType": "tbsp",
+                "quantity": 2,
+                "name": "Thyme",
+                "desc": "chopped",
+                "index": 10
             }
         ],
         "totalTime": 35,
         "instructions": [
-            "1. Preheat the oven to 180°C, fan-forced."
+            "1. Preheat the oven to 180°C, fan-forced.",
+            "2. Slice the eggplant, tomatoes, squash and zucchini into 2mm thick slices.",
+            "3. Heat half the olive oil into a 30-cm wide oven safe pan. Add the onion and 3/4 of the garlic, stir occasionally. Season with salt and pepper, then add the crushed tomatoes. Stir all the ingredients together. Remove from heat, then add half the basil.",
+            "4. Arrange the sliced veggies in alternating patterns, (for example, eggplant, tomato, squash, zucchini) on top of the sauce from the outer edge to the middle of the pan. Season with salt and pepper.",
+            "5. In a small bowl, mix together the remaining basil, remaining garlic, parsley, thyme, salt, pepper, and olive oil. Spoon the herb seasoning over the vegetables.",
+            "6. Cover the pan with foil and bake for 40 minutes. Uncover, then bake for another 20 minutes, until the vegetables are softened."
         ],
-        "servings": 30
+        "servings": 8
     },
     {
         "id": 2,
@@ -381,176 +443,5 @@
             "5. Place tray into the oven for 20 minutes, or until golden-brown."
         ],
         "servings": 10
-    },
-    {
-        "id": 7,
-        "name": "Ratatouille",
-        "ingredients": [
-            {
-                "unitType": "Pcs",
-                "quantity": 1,
-                "name": "Eggplant",
-                "index": 1
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 3,
-                "name": "Tomatoes",
-                "index": 2
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 1,
-                "name": "Yellow Squash",
-                "index": 3
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 1,
-                "name": "Zucchini",
-                "index": 4
-            },
-            {
-                "unitType": "tbsp",
-                "quantity": 6,
-                "name": "Olive Oil",
-                "index": 5
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 1,
-                "name": "Onion",
-                "desc": "diced",
-                "index": 6
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 5,
-                "name": "Garlic Cloves",
-                "desc": "minced",
-                "index": 7
-            },
-            {
-                "unitType": "Can",
-                "quantity": 800,
-                "name": "Crushed Tomatoes",
-                "index": 8
-            },
-            {
-                "unitType": "Leaves",
-                "quantity": 20,
-                "name": "Fresh Basil",
-                "index": 9
-            },
-            {
-                "unitType": "tbsp",
-                "quantity": 2,
-                "name": "Thyme",
-                "desc": "chopped",
-                "index": 10
-            }
-        ],
-        "totalTime": 35,
-        "instructions": [
-            "1. Preheat the oven to 180°C, fan-forced.",
-            "2. Slice the eggplant, tomatoes, squash and zucchini into 2mm thick slices.",
-            "3. Heat half the olive oil into a 30-cm wide oven safe pan. Add the onion and 3/4 of the garlic, stir occasionally. Season with salt and pepper, then add the crushed tomatoes. Stir all the ingredients together. Remove from heat, then add half the basil.",
-            "4. Arrange the sliced veggies in alternating patterns, (for example, eggplant, tomato, squash, zucchini) on top of the sauce from the outer edge to the middle of the pan. Season with salt and pepper.",
-            "5. In a small bowl, mix together the remaining basil, remaining garlic, parsley, thyme, salt, pepper, and olive oil. Spoon the herb seasoning over the vegetables.",
-            "6. Cover the pan with foil and bake for 40 minutes. Uncover, then bake for another 20 minutes, until the vegetables are softened."
-        ],
-        "servings": 8
-    },
-    {
-        "id": 8,
-        "name": "Pavlova",
-        "ingredients": [
-            {
-                "unitType": "Pcs",
-                "quantity": 6,
-                "name": "Eggs",
-                "index": 1
-            },
-            {
-                "unitType": "grams",
-                "quantity": 270,
-                "name": "Caster Sugar",
-                "index": 2
-            },
-            {
-                "unitType": "tsp",
-                "quantity": 2,
-                "name": "Cornflour",
-                "index": 3
-            },
-            {
-                "unitType": "tsp",
-                "quantity": 1,
-                "name": "White Vingear",
-                "index": 4
-            },
-            {
-                "unitType": "tsp",
-                "quantity": 0.5,
-                "name": "Vanilla Extract",
-                "index": 5
-            },
-            {
-                "unitType": "mL",
-                "quantity": 300,
-                "name": "Thickend Cream",
-                "index": 6
-            },
-            {
-                "unitType": "tbsp",
-                "quantity": 2,
-                "name": "Pure Icing Sugar",
-                "desc": "sifted",
-                "index": 7
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 2,
-                "name": "Limes",
-                "decs": "juiced",
-                "index": 8
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 2,
-                "name": "Limes",
-                "desc": "shredded rind",
-                "index": 9
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 2,
-                "name": "Bananas",
-                "desc": "thinly sliced",
-                "index": 10
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 2,
-                "name": "Starfruit",
-                "desc": "thinly sliced",
-                "index": 11
-            },
-            {
-                "unitType": "Pcs",
-                "quantity": 2,
-                "name": "Passionfruit",
-                "desc": "pulped",
-                "index": 12
-            }
-        ],
-        "totalTime": 120,
-        "instructions": [
-            "1. Pre-heat oven to a temperature of 120°C. Grease a thin layer of melted butter along with dusting cornflour on the oven tray with foil. Make a circle with 24 cm on the foil.",
-            "2. Whist all 6 egg whites with a mixture until soft peaks forms. Adding sugar gradually, mix it until meringue appears thick as well as glossy. Later just like sugar gradually whisk and add cornflour, vinegar and vanilla. Place meringue on marked circle. Use a small spatula to forms little peaks around edge of pavlova. Bake it for 1.5 hrs until pavlova looks dry. Turn off oven and as soon as pavlova cools transfer to a serving plate.",
-            "3. Now it’s the turn for icing, with a mixer whisk cream and icing until firm peaks form. Cream it on the top of pavlova. Coat banana slices with lime juice in glass bowl.",
-            "4. Decorate pavlova with banana, kiwifruit, starfruit, passionfruit and lime rind."
-        ],
-        "servings": 8
     }
 ]
