@@ -121,21 +121,22 @@ struct CompleteRecipeView: View {
                             }
                             
                                                         
-                            VStack(){
+                            VStack(alignment: .leading, spacing: 15){
                                 Text("Instructions")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .padding(.leading, 10)
-                                    .padding(.vertical, 10)
+                                    .padding(.top, 10)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
-                                Text(recipe.instructions.joined(separator: "\n"))
-                                    .multilineTextAlignment(.leading)
-                                    .padding(.leading, 10)
-                                    .padding(.trailing, 10)
-                                    .lineSpacing(5)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
+                                ForEach(recipe.instructions.indices, id: \.self) { index in
+                                        Text(recipe.instructions[index])
+                                            .multilineTextAlignment(.leading)
+                                            .padding(.leading, 10)
+                                            .padding(.trailing, 10)
+                                            .lineSpacing(5)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
                             }
                         }
                         .navigationBarTitle("Recipe")
