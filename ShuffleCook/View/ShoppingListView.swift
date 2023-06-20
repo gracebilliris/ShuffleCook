@@ -10,24 +10,28 @@ import SwiftUI
 private var items: [ListItem] = []
 
 struct ShoppingListView: View {
+    @Binding var selectedTab: Int
     @State var text = ""
     @State var editMode = false
+    @State var showBlankPage = true // New state variable
     @EnvironmentObject var model: Model
     var body: some View {
         VStack (alignment: .leading){
             let _: () = assembleShoppingList()
             // HEADER / NAVIGATION
-            HStack {
+            HStack (alignment: .center) {
                 Text("Shopping List")
                     .font(.largeTitle)
                     .bold()
                 Spacer()
-                Button((editMode ? "Save" : "Edit")) {
-                    editAction()
+                if !items.isEmpty { // Only edit menu when list is compiled
+                    Button((editMode ? "Save" : "Edit")) {
+                        editAction()
+                    }
                 }
             } .padding(.horizontal)
                 .padding(.vertical)
-                
+            
             // END HEADER / NAVIGATION
             
             ScrollView(.horizontal){
@@ -38,7 +42,7 @@ struct ShoppingListView: View {
                             RecipeView(recipe: rec)
                             if (editMode){
                                 Button(role: .destructive)
-                                    {
+                                {
                                     print("Removing recipe from list:")
                                     print("rec: " + rec.name)
                                     removeRecipe(recipe: rec)
@@ -54,63 +58,100 @@ struct ShoppingListView: View {
                         }
                     }
                 }.padding()
-                .frame(height: 240)
+                    .frame(height: 240)
                 Spacer()
             }
             .frame(height: 220.0)
             
             ScrollView(.vertical) {
-                Grid() {
-                    GridRow  {
-                        Image(systemName: "checkmark.circle.fill").gridColumnAlignment(.center)
-                            .padding(.leading, 20)
-                            .frame(maxWidth: 60)
-                        Text("Qty").gridColumnAlignment(.leading)
-                        Text("Unit").gridColumnAlignment(.leading)
-                        Text("Product").gridColumnAlignment(.leading)
-                    }
-                    .fontWeight(.bold)
-                    .padding(.bottom, 5)
-                    .offset(x: -20)
-                    Divider()
-                        .ignoresSafeArea()
-    
-                    ForEach(items, id: \.self) { item in
-                        GridRow {
-                            Button(){
-                                var indices: [Int] = []
-                                if let row = items.firstIndex(where: {$0.name == item.name}) {
-//                                    items[row].collected = !items[row].collected
-//                                    items[row].name = "bazooka"
-                                    indices.append(row)
-//                                    print("Button pressed on row: " + String(row) + "\nCollected: " + String(items[row].collected) + ",\tname: " + String(items[row].name))
-                                }
-                                // debug, print out all selected items in items array
-//                                printAllCollected()
-                                applyCollected(indices: indices)
-                            } label: {
-                                Image(systemName: item.collected ? "checkmark.circle.fill" : "circle").gridColumnAlignment(.center)
-                                //let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
-                            }
-                            .foregroundColor(Color.black)
-                            .padding(.leading, 20)
-
-                            //Text((item.unitType == "Kg") ? String(format:"%.2f", item.quantity) : String(format:"%.0f", item.quantity))
-                            Text(item.getQuantityStr())
-                                .gridColumnAlignment(.leading)
-                            Text(item.unitType.description).gridColumnAlignment(.leading)
-                            Text(item.name).gridColumnAlignment(.leading)
+                if items.isEmpty {
+                    Text("Nothing to shop\n\nAdd recipes by\n")
+                        .multilineTextAlignment(.center)
+                    HStack (alignment: .center) {
+                        VStack (alignment: .center) {
+                            Button(action: {
+                                selectedTab = 1}
+                                   , label: {
+                                Text("Shuffle")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(.blue)
+                                    .clipShape(Capsule())
+                            })
                         }
+                        VStack (alignment: .center) {
+                            Button(action: {
+                                selectedTab = 0}
+                                   , label: {
+                                Text("Browse")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(.blue)
+                                    .clipShape(Capsule())
+                            })
+                        }
+                    } .padding(.horizontal)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                } else {
+                    Grid() {
+                        GridRow  {
+                            Image(systemName: "checkmark.circle.fill").gridColumnAlignment(.center)
+                                .padding(.leading, 20)
+                                .frame(maxWidth: 60)
+                            Text("Qty").gridColumnAlignment(.leading)
+                            Text("Unit").gridColumnAlignment(.leading)
+                            Text("Product").gridColumnAlignment(.leading)
+                        }
+                        .fontWeight(.bold)
+                        .padding(.bottom, 5)
                         .offset(x: -20)
                         Divider()
                             .ignoresSafeArea()
+                        
+                        ForEach(items, id: \.self) { item in
+                            GridRow {
+                                Button(){
+                                    var indices: [Int] = []
+                                    if let row = items.firstIndex(where: {$0.name == item.name}) {
+                                        //                                    items[row].collected = !items[row].collected
+                                        //                                    items[row].name = "bazooka"
+                                        indices.append(row)
+                                        //                                    print("Button pressed on row: " + String(row) + "\nCollected: " + String(items[row].collected) + ",\tname: " + String(items[row].name))
+                                    }
+                                    // debug, print out all selected items in items array
+                                    //                                printAllCollected()
+                                    applyCollected(indices: indices)
+                                } label: {
+                                    Image(systemName: item.collected ? "checkmark.circle.fill" : "circle").gridColumnAlignment(.center)
+                                    //let _ = print("Drawing button for: " + item.name + ",\tcollected: " + String(item.collected))
+                                }
+                                .foregroundColor(Color.black)
+                                .padding(.leading, 20)
+                                
+                                //Text((item.unitType == "Kg") ? String(format:"%.2f", item.quantity) : String(format:"%.0f", item.quantity))
+                                Text(item.getQuantityStr())
+                                    .gridColumnAlignment(.leading)
+                                Text(item.unitType.description).gridColumnAlignment(.leading)
+                                Text(item.name).gridColumnAlignment(.leading)
+                            }
+                            .offset(x: -20)
+                            Divider()
+                                .ignoresSafeArea()
+                        }
+                        let _: () = printAllCollected()
                     }
-                    let _: () = printAllCollected()
+                    .padding(.top)
                 }
-                .padding(.top)
+                Spacer()
             }
-            Spacer()
-        }
+        }.navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true) // Hide back button
     }
     
     private func removeRecipe(recipe: Recipe){
@@ -166,8 +207,9 @@ struct ShoppingListView: View {
     }
 }
 
-struct ShoppingListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShoppingListView()
-    }
-}
+//struct ShoppingListView_Previews: PreviewProvider {
+//    @State private var selectedTab = 0
+//    static var previews: some View {
+//        ShoppingListView().environmentObject(Model()) // Run build to preview
+//    }
+//}
