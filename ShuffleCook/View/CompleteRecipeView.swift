@@ -72,15 +72,16 @@ struct CompleteRecipeView: View {
                                         Text("Total Time")
                                             .font(.headline)
                                             .multilineTextAlignment(.leading)
+                                            .padding(.bottom, 1)
+                                        
                                         Text(String(recipe.totalTime) + " minutes \n").multilineTextAlignment(.leading)
                                         
                                         Text("Servings").font(.headline).multilineTextAlignment(.leading)
+                                            .padding(.bottom, 1)
                                         
                                         Text(String(recipe.servings)).multilineTextAlignment(.leading)
-                                        
-                                    }.padding(.leading)
-                                }
-                                .frame(width: 150.0, height: 200.0)
+                                    }
+                                }.frame(width: 150.0, height: 200.0)
                             }.frame(width: 375, height: 200)
                             
 //                            Spacer()
