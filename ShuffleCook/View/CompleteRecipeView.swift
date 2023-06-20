@@ -51,49 +51,49 @@ struct CompleteRecipeView: View {
                 ScrollView{
                     VStack {
                         //whole stack
-                        VStack(alignment: .center) {
+                        VStack() {
                             Text(recipe.name)
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .multilineTextAlignment(.center)
-                                .padding()
+                                .multilineTextAlignment(.leading)
+                                .padding(.trailing)
                             
                             //name, total time and recipe image Hstack
-                            HStack(alignment: .center){
+                            HStack(){
                                 Image(recipe.name)
                                     .resizable()
                                     .frame(width: 200, height: 200)
-                                    .cornerRadius(38)
-                                    .padding()
+                                    .cornerRadius(25)
                                 
-                                VStack(alignment: .leading){
+                                VStack(){
                                     
                                     //total time VStack
                                     VStack{
                                         Text("Total Time")
                                             .font(.headline)
                                             .multilineTextAlignment(.leading)
+                                            .padding(.bottom, 1)
+                                        
                                         Text(String(recipe.totalTime) + " minutes \n").multilineTextAlignment(.leading)
                                         
                                         Text("Servings").font(.headline).multilineTextAlignment(.leading)
+                                            .padding(.bottom, 1)
                                         
                                         Text(String(recipe.servings)).multilineTextAlignment(.leading)
-                                        
-                                    }.padding(.leading)
-                                }
-                                .frame(width: 150.0, height: 200.0)
+                                    }
+                                }.frame(width: 150.0, height: 200.0)
                             }.frame(width: 375, height: 200)
                             
-                            Spacer()
+//                            Spacer()
                             
                             Text("Ingredients")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
-                                .position(x:60,y:10)
                                 .padding(.leading, 10)
+                                .padding(.vertical, 10)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            Spacer()
+//                            Spacer()
                             
                             // New version of drawing the list of ingredients with new model.
                             // Feel free to rearrange and stylise!
@@ -102,9 +102,9 @@ struct CompleteRecipeView: View {
                                 ForEach(recipe.ingredients, id: \.index) { ingr in
                                     GridRow(){
                                         Text(ingr.getQuantityStr())
-                                        
+
                                         //                                  if else for comma inclusion down here
-                                        
+
                                         //IF the thing doesnt work just use this
                                         if ingr.desc != nil {
                                             Text(ingr.name + ", " + (ingr.desc ?? " "))
@@ -114,29 +114,30 @@ struct CompleteRecipeView: View {
                                             Text(ingr.name)
                                                 .multilineTextAlignment(.leading)
                                         }
-                                        
+
                                     }
                                     Divider()
                                 }
+                                .padding(.horizontal)
                             }
                             
-                            .padding()
-                            
-                            Spacer()
-                            
-                            VStack(){
+                                                        
+                            VStack(alignment: .leading, spacing: 15){
                                 Text("Instructions")
                                     .font(.title2)
                                     .fontWeight(.bold)
-                                    .multilineTextAlignment(.leading)
-                                    .position(x:60,y:10)
-                                    .padding()
-                                
-                                Text(recipe.instructions.joined(separator: "\n "))
-                                    .multilineTextAlignment(.leading)
                                     .padding(.leading, 10)
-                                    .padding(.trailing, 10)
+                                    .padding(.top, 10)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 
+                                ForEach(recipe.instructions.indices, id: \.self) { index in
+                                        Text(recipe.instructions[index])
+                                            .multilineTextAlignment(.leading)
+                                            .padding(.leading, 10)
+                                            .padding(.trailing, 10)
+                                            .lineSpacing(5)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
                             }
                         }
                         .navigationBarTitle("Recipe")
