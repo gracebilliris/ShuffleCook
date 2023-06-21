@@ -11,8 +11,8 @@ struct CompleteRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         CompleteRecipeView(
             recipe: Recipe(
-                id: 7,
-                name: "Prawn & Kimchi Fried Rice",
+                id: 5,
+                name: "Tomato, Spinach and Feta Linguine",
                 ingredients: [
                     Ingredient(quantity: 1, unitType: "Pcs", name: "Lebanese Cucumber", desc: "cut into matchsticks", index: 0),
                     Ingredient(quantity: 1, unitType: "Pcs", name: "Carrot", desc: "cut into matchsticks", index: 1),
@@ -56,7 +56,8 @@ struct CompleteRecipeView: View {
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading)
-                                .padding(.trailing)
+                                .padding(.horizontal, 10)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             
                             //name, total time and recipe image Hstack
                             HStack(){
